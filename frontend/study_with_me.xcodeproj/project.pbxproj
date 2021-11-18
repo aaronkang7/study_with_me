@@ -13,6 +13,7 @@
 		E95BC0812745DF2000CBC5D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC0802745DF2000CBC5D2 /* ViewController.swift */; };
 		E95BC0862745DF2200CBC5D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95BC0852745DF2200CBC5D2 /* Assets.xcassets */; };
 		E95BC0892745DF2200CBC5D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95BC0872745DF2200CBC5D2 /* LaunchScreen.storyboard */; };
+		E95BC0E22746CF5600CBC5D2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95BC0E12746CF5600CBC5D2 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,15 +36,16 @@
 /* Begin PBXFileReference section */
 		034F6F2AD289413A5B58DFCC /* Pods_study_with_me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study_with_me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F283F589527FC65EEA1CE0 /* Pods-study_with_me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-study_with_me.release.xcconfig"; path = "Target Support Files/Pods-study_with_me/Pods-study_with_me.release.xcconfig"; sourceTree = "<group>"; };
-		E95BC0792745DF2000CBC5D2 /* study_with_me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = study_with_me.app; path = "/Users/aaronkang/Desktop/study_with_me/frontend/build/Debug-iphoneos/study_with_me.app"; sourceTree = "<absolute>"; };
 		E95BC07C2745DF2000CBC5D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E95BC07E2745DF2000CBC5D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E95BC0802745DF2000CBC5D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E95BC0852745DF2200CBC5D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E95BC0882745DF2200CBC5D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E95BC08A2745DF2200CBC5D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E95BC08F2745DF2200CBC5D2 /* study_with_meTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = study_with_meTests.xctest; path = "/Users/aaronkang/Desktop/study_with_me/frontend/build/Debug-iphoneos/study_with_meTests.xctest"; sourceTree = "<absolute>"; };
-		E95BC09A2745DF2300CBC5D2 /* study_with_meUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = study_with_meUITests.xctest; path = "/Users/aaronkang/Desktop/study_with_me/frontend/build/Debug-iphoneos/study_with_meUITests.xctest"; sourceTree = "<absolute>"; };
+		E95BC0DB2746CF1A00CBC5D2 /* study_with_me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = study_with_me.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95BC0DC2746CF1A00CBC5D2 /* study_with_meTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = study_with_meTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95BC0DD2746CF1A00CBC5D2 /* study_with_meUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = study_with_meUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95BC0E12746CF5600CBC5D2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FBAF5789B275B7F15E51CB6D /* Pods-study_with_me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-study_with_me.debug.xcconfig"; path = "Target Support Files/Pods-study_with_me/Pods-study_with_me.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,9 @@
 				E95BC07B2745DF2000CBC5D2 /* study_with_me */,
 				F3B0CBEBC9950721A4A7A131 /* Pods */,
 				697B5F0CE5B694B4E4A77B7A /* Frameworks */,
+				E95BC0DB2746CF1A00CBC5D2 /* study_with_me.app */,
+				E95BC0DC2746CF1A00CBC5D2 /* study_with_meTests.xctest */,
+				E95BC0DD2746CF1A00CBC5D2 /* study_with_meUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +104,7 @@
 				E95BC0852745DF2200CBC5D2 /* Assets.xcassets */,
 				E95BC0872745DF2200CBC5D2 /* LaunchScreen.storyboard */,
 				E95BC08A2745DF2200CBC5D2 /* Info.plist */,
+				E95BC0E12746CF5600CBC5D2 /* NetworkManager.swift */,
 			);
 			path = study_with_me;
 			sourceTree = "<group>";
@@ -131,7 +137,7 @@
 			);
 			name = study_with_me;
 			productName = study_with_me;
-			productReference = E95BC0792745DF2000CBC5D2 /* study_with_me.app */;
+			productReference = E95BC0DB2746CF1A00CBC5D2 /* study_with_me.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E95BC08E2745DF2200CBC5D2 /* study_with_meTests */ = {
@@ -149,7 +155,7 @@
 			);
 			name = study_with_meTests;
 			productName = study_with_meTests;
-			productReference = E95BC08F2745DF2200CBC5D2 /* study_with_meTests.xctest */;
+			productReference = E95BC0DC2746CF1A00CBC5D2 /* study_with_meTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		E95BC0992745DF2300CBC5D2 /* study_with_meUITests */ = {
@@ -167,7 +173,7 @@
 			);
 			name = study_with_meUITests;
 			productName = study_with_meUITests;
-			productReference = E95BC09A2745DF2300CBC5D2 /* study_with_meUITests.xctest */;
+			productReference = E95BC0DD2746CF1A00CBC5D2 /* study_with_meUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -285,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95BC0E22746CF5600CBC5D2 /* NetworkManager.swift in Sources */,
 				E95BC0812745DF2000CBC5D2 /* ViewController.swift in Sources */,
 				E95BC07D2745DF2000CBC5D2 /* AppDelegate.swift in Sources */,
 				E95BC07F2745DF2000CBC5D2 /* SceneDelegate.swift in Sources */,
