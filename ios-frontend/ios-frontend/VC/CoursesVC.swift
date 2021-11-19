@@ -10,6 +10,12 @@ import UIKit
 
 class CoursesVC : UIViewController{
     
+    var tableView: UITableView!
+    
+    let reuseIdentifier = "courseCellReuse"
+    let cellHeight: CGFloat = 110
+    var courses: [Course]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
