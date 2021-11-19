@@ -8,11 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let tabBarViewController = TabBarVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        // Do any additional setup after loading the view.
+        
+        view.addSubview(tabBarViewController.view)
+
+        
     }
 
 
