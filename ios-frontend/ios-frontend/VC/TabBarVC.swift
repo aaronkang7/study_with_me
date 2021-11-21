@@ -20,6 +20,7 @@ class TabBarVC: UITabBarController, UITabBarControllerDelegate {
         searchViewController.tabBarItem = UITabBarItem(title:"Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         
         coursesViewController.tabBarItem = UITabBarItem(title:"Courses", image: UIImage(systemName: "books.vertical"), tag: 1)
+        coursesViewController.title = "My Courses"
         
         profileViewController.tabBarItem = UITabBarItem(title:"Profile", image: UIImage(systemName: "person.crop.circle.fill"), tag: 2)
         

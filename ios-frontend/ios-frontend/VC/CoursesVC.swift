@@ -20,6 +20,7 @@ class CoursesVC : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "My Courses"
         
         view.backgroundColor = .white
         courses = [Course(name: "Hello", class_code: "Hello2", department: "Chem", enrollment: 30, professor: "Mr.Hello"),Course(name: "Class Name", class_code: "CS2110", department: "Computer Science", enrollment: 30, professor: "Mr.jdasfidogn")]
