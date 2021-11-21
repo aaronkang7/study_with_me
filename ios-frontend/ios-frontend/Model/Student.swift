@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Student {
+class Student: Codable {
     var name: String
     var email: String
     var year: Int

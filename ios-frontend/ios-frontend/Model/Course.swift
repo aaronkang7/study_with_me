@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Course {
+class Course: Codable {
     var name: String
     var class_code: String
     var department: String

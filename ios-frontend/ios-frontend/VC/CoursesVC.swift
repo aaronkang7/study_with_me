@@ -34,6 +34,7 @@ class CoursesVC : UIViewController{
         courseTableView.translatesAutoresizingMaskIntoConstraints = false;
         courseTableView.register(CourseTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         view.addSubview(courseTableView)
+        
     }
     
     func setupConstraints(){

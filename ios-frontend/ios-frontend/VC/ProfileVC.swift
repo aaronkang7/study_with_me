@@ -11,12 +11,12 @@ import SnapKit
 
 class ProfileVC : UIViewController{
     
-    var profileImage: UIImage!
+    var profileImage: UIImageView!
     var name: UILabel!
-    var bio: UILabel!
-    var email: UILabel!
     var year: UILabel!
     var major: UILabel!
+    var email: UILabel!
+    var bio: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,47 @@ class ProfileVC : UIViewController{
     }
     
     func setupViews(){
-        profileImage = UIImage(systemName: "person.crop.circle.fill")
+        profileImage = UIImageView()
+        profileImage.image = UIImage(systemName: "person.crop.circle.fill")
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.clipsToBounds = true
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(profileImage)
+        
+        name = UILabel()
+        name.text = "First Lastname"
+        name.textColor = .black
+        name.font = UIFont(name: "Inter-Regular", size: 24)
+        name.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(name)
+        
+        year = UILabel()
+        year.text = "Year"
+        year.textColor = .black //change later
+        year.font = UIFont(name: "Inter-Regular", size: 24)
+        year.translatesAutoresizingMaskIntoConstraints=false
+        view.addSubview(year)
+        
+        major = UILabel()
+        major.text = "Major"
+        major.textColor = .black //change later
+        major.font = UIFont(name: "Inter-Regular", size: 24)
+        major.translatesAutoresizingMaskIntoConstraints=false
+        view.addSubview(major)
+        
+        email = UILabel()
+        email.text = "Email"
+        email.textColor = .black //change later
+        email.font = UIFont(name: "Inter-Regular", size: 24)
+        email.translatesAutoresizingMaskIntoConstraints=false
+        view.addSubview(email)
+        
+        bio = UITextField()
+        bio.placeholder = "Bio"
+        bio.textColor = .black
+        bio.font = UIFont(name: "Inter-Regular", size: 12)
+        bio.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bio)
         
     }
     
