@@ -7,12 +7,14 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
-class ProductTableViewCell: UITableViewCell {
+class CourseTableViewCell: UITableViewCell {
     var nameLabel: UILabel!
     var codeLabel: UILabel!
     var enrollmentLabel: UILabel!
-    let padding: CGFloat = 8
+    let padding: CGFloat = 20
+    let margin: CGFloat = 30
     let height: CGFloat = 20
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -20,17 +22,15 @@ class ProductTableViewCell: UITableViewCell {
         
         nameLabel = UILabel()
         nameLabel.font = UIFont.systemFont(ofSize: 18)
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
         
         codeLabel = UILabel()
         codeLabel.font = UIFont.systemFont(ofSize: 14)
-        codeLabel.translatesAutoresizingMaskIntoConstraints = false
+
         contentView.addSubview(codeLabel)
         
         enrollmentLabel = UILabel()
         enrollmentLabel.font = UIFont.systemFont(ofSize: 12)
-        enrollmentLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(enrollmentLabel)
         
         setupConstraints()
@@ -41,36 +41,26 @@ class ProductTableViewCell: UITableViewCell {
     }
     
     func setupConstraints(){
-//        NSLayoutConstraint.activate([
-//                productImage.widthAnchor.constraint(equalToConstant: imageDim),
-//                productImage.heightAnchor.constraint(equalToConstant: imageDim),
-//                productImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-//            productImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-//        ])
-//
-//
-//
-//        NSLayoutConstraint.activate([
-//                nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-//                nameLabel.heightAnchor.constraint(equalToConstant: height),
-//                nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding)])
-//
-//
-//        NSLayoutConstraint.activate([
-//                reviewLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-//                reviewLabel.heightAnchor.constraint(equalToConstant: height),
-//                reviewLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding+20)])
-//
-//        NSLayoutConstraint.activate([
-//                companyLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-//                companyLabel.heightAnchor.constraint(equalToConstant: height),
-//                companyLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding+40)])
+        codeLabel.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(margin)
+            make.top.equalToSuperview().offset(padding)
+        }
+        
+        nameLabel.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(margin)
+            make.top.equalTo(codeLabel.snp.top).offset(padding)
+        }
+        
+        enrollmentLabel.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(margin)
+            make.top.equalTo(nameLabel.snp.top).offset(padding+5)
+        }
     }
     
     func configure(for course: Course) {
         nameLabel.text = course.name
         codeLabel.text = course.class_code
-        enrollmentLabel.text = String(course.enrollment)
+        enrollmentLabel.text = "In class: \(course.enrollment)"
     }
 }
 

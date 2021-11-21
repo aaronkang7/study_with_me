@@ -10,9 +10,7 @@ import UIKit
 class TabBarVC: UITabBarController, UITabBarControllerDelegate {
     
     let searchViewController = SearchVC()
-    
     let coursesViewController = CoursesVC()
-    
     let profileViewController = ProfileVC()
     
     override func viewDidLoad() {
