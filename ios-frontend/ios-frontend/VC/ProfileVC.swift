@@ -72,8 +72,23 @@ class ProfileVC : UIViewController{
         view.addSubview(bio)
         
     }
-    
+   // MARK: Add Profile Image and Bio Constraints
     func setupConstraints(){
-        
+        NSLayoutConstraint.activate([
+            name.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 250),
+            name.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            year.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 20),
+            year.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            major.topAnchor.constraint(equalTo: year.bottomAnchor, constant: 20),
+            major.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            email.topAnchor.constraint(equalTo: major.bottomAnchor, constant: 20),
+            email.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+        ])
     }
 }

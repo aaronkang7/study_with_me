@@ -28,7 +28,6 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         let viewControllerList = [ searchViewController, coursesViewController, profileViewController ]
         
         viewControllers = viewControllerList
-
         
     }
 
