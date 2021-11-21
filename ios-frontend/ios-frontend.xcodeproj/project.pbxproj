@@ -19,6 +19,7 @@
 		E94E6E642748272100546FD0 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E6E632748272100546FD0 /* TabBarVC.swift */; };
 		E94E6E6A2748495400546FD0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E6E692748495400546FD0 /* Course.swift */; };
 		E94E6E6E2748496200546FD0 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E6E6D2748496200546FD0 /* Student.swift */; };
+		E9AF36842749CB2900800E32 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF36832749CB2900800E32 /* CourseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E94E6E632748272100546FD0 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		E94E6E692748495400546FD0 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		E94E6E6D2748496200546FD0 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		E9AF36832749CB2900800E32 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		E94E6E4427476ADB00546FD0 /* ios-frontend */ = {
 			isa = PBXGroup;
 			children = (
+				E9AF36822749CB0D00800E32 /* View */,
 				E94E6E682748492000546FD0 /* Model */,
 				E94E6E6627482E6100546FD0 /* VC */,
 				E94E6E4527476ADB00546FD0 /* AppDelegate.swift */,
@@ -107,6 +110,14 @@
 				E94E6E60274825B200546FD0 /* ProfileVC.swift */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		E9AF36822749CB0D00800E32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9AF36832749CB2900800E32 /* CourseTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				E94E6E642748272100546FD0 /* TabBarVC.swift in Sources */,
 				E94E6E61274825B200546FD0 /* ProfileVC.swift in Sources */,
 				E94E6E5B2748259C00546FD0 /* SearchVC.swift in Sources */,
+				E9AF36842749CB2900800E32 /* CourseTableViewCell.swift in Sources */,
 				E94E6E6E2748496200546FD0 /* Student.swift in Sources */,
 				E94E6E5E274825A800546FD0 /* CoursesVC.swift in Sources */,
 				E94E6E4A27476ADB00546FD0 /* ViewController.swift in Sources */,
