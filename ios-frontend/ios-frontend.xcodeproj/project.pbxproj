@@ -84,10 +84,8 @@
 		E94E6E6627482E6100546FD0 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				E94E6E5A2748259C00546FD0 /* SearchVC.swift */,
-				E94E6E5D274825A800546FD0 /* CoursesVC.swift */,
-				E94E6E60274825B200546FD0 /* ProfileVC.swift */,
 				E94E6E632748272100546FD0 /* TabBarVC.swift */,
+				E94E6E70274866E700546FD0 /* Tabbar */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -99,6 +97,16 @@
 				E94E6E6D2748496200546FD0 /* Student.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E94E6E70274866E700546FD0 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				E94E6E5A2748259C00546FD0 /* SearchVC.swift */,
+				E94E6E5D274825A800546FD0 /* CoursesVC.swift */,
+				E94E6E60274825B200546FD0 /* ProfileVC.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
