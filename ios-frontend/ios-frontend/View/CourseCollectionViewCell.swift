@@ -14,6 +14,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
     var nameLabel = UILabel()
     var codeLabel = UILabel()
     var enrollmentLabel = UILabel()
+    var deleteButton = UIButton()
     
     let padding: CGFloat = 20
     let margin: CGFloat = 30
@@ -45,12 +46,12 @@ class CourseCollectionViewCell: UICollectionViewCell {
         codeLabel.layer.backgroundColor = UIColor(red: 0/255, green: 110/255, blue: 230/255, alpha: 0.8).cgColor
         codeLabel.layer.cornerRadius = 6
         contentView.addSubview(codeLabel)
-    
 
         enrollmentLabel.font = .systemFont(ofSize: 15)
         enrollmentLabel.textColor = .black
         enrollmentLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(enrollmentLabel)
+        
 
         setupConstraints()
     }
