@@ -17,6 +17,7 @@ class TabBarVC: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         view.backgroundColor = .red
         
+        
         searchViewController.tabBarItem = UITabBarItem(title:"Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         
         coursesViewController.tabBarItem = UITabBarItem(title:"Courses", image: UIImage(systemName: "books.vertical"), tag: 1)

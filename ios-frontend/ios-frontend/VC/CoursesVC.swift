@@ -37,9 +37,10 @@ class CoursesVC : UIViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 30
         layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        
         courseCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         courseCollectionView.backgroundColor = .clear
         courseCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +90,7 @@ extension CoursesVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numItemsPerRow: CGFloat = 1.0
         let size = (collectionView.frame.width - 10) / numItemsPerRow
-        return CGSize(width: size, height: size / 2)
+        return CGSize(width: size-20, height: size / 2 - 40)
     }
     
 }

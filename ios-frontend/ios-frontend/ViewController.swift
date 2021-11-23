@@ -15,7 +15,9 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        self.delegate = self
+        title = "Search"
+        
         searchViewController.tabBarItem = UITabBarItem(title:"Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         searchViewController.title = "Hello"
         
@@ -29,6 +31,10 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         
         viewControllers = viewControllerList
         
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
+        self.title = viewController.title
     }
 
 

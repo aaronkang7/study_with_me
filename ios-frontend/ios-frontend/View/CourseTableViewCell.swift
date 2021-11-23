@@ -21,16 +21,23 @@ class CourseCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        contentView.backgroundColor = .lightGray
-        contentView.layer.cornerRadius = 8
+        contentView.backgroundColor = .white
         contentView.clipsToBounds = true
+        
+        contentView.layer.cornerRadius = 10
+        contentView.layer.borderWidth = 0.0
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        contentView.layer.shadowRadius = 10.0
+        contentView.layer.shadowOpacity = 0.2
+        contentView.layer.masksToBounds = false
 
         nameLabel.font = .systemFont(ofSize: 30)
         nameLabel.textColor = .black
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
 
-        codeLabel.font = .systemFont(ofSize: 30)
+        codeLabel.font = .systemFont(ofSize: 18)
         codeLabel.textColor = .black
         codeLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(codeLabel)
@@ -54,16 +61,19 @@ class CourseCollectionViewCell: UICollectionViewCell {
     }
     
     func setupConstraints() {
+        
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
-        ])
-        NSLayoutConstraint.activate([
-            codeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            codeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             codeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
         ])
+        
         NSLayoutConstraint.activate([
-            enrollmentLabel.topAnchor.constraint(equalTo: codeLabel.bottomAnchor),
+            nameLabel.topAnchor.constraint(equalTo: codeLabel.bottomAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
+        ])
+
+        NSLayoutConstraint.activate([
+            enrollmentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             enrollmentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
         ])
     }
