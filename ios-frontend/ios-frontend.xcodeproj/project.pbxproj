@@ -20,6 +20,8 @@
 		E94E6E61274825B200546FD0 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E6E60274825B200546FD0 /* ProfileVC.swift */; };
 		E94E6E6A2748495400546FD0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E6E692748495400546FD0 /* Course.swift */; };
 		E94E6E6E2748496200546FD0 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E6E6D2748496200546FD0 /* Student.swift */; };
+		E950517A274DC0D800487A12 /* StudentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9505179274DC0D800487A12 /* StudentsVC.swift */; };
+		E950517D274DC0F800487A12 /* StudentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E950517C274DC0F800487A12 /* StudentCollectionViewCell.swift */; };
 		E9AF36842749CB2900800E32 /* CourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF36832749CB2900800E32 /* CourseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		E94E6E60274825B200546FD0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		E94E6E692748495400546FD0 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		E94E6E6D2748496200546FD0 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		E9505179274DC0D800487A12 /* StudentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsVC.swift; sourceTree = "<group>"; };
+		E950517C274DC0F800487A12 /* StudentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9AF36832749CB2900800E32 /* CourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +118,7 @@
 				E94E6E5A2748259C00546FD0 /* SearchVC.swift */,
 				E94E6E5D274825A800546FD0 /* CoursesVC.swift */,
 				E94E6E60274825B200546FD0 /* ProfileVC.swift */,
+				E9505179274DC0D800487A12 /* StudentsVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			children = (
 				E9AF36832749CB2900800E32 /* CourseCollectionViewCell.swift */,
 				ABF41C55274AF63E004D4E33 /* Header.swift */,
+				E950517C274DC0F800487A12 /* StudentCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 				E94E6E6A2748495400546FD0 /* Course.swift in Sources */,
 				E94E6E61274825B200546FD0 /* ProfileVC.swift in Sources */,
 				E94E6E5B2748259C00546FD0 /* SearchVC.swift in Sources */,
+				E950517A274DC0D800487A12 /* StudentsVC.swift in Sources */,
+				E950517D274DC0F800487A12 /* StudentCollectionViewCell.swift in Sources */,
 				E9AF36842749CB2900800E32 /* CourseCollectionViewCell.swift in Sources */,
 				ABF41C56274AF63E004D4E33 /* Header.swift in Sources */,
 				E94E6E6E2748496200546FD0 /* Student.swift in Sources */,

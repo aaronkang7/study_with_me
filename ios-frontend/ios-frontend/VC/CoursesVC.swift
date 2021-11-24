@@ -93,4 +93,11 @@ extension CoursesVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
         return CGSize(width: size-20, height: size / 2 - 40)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = courseCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let course = courses[indexPath.item]
+        
+        
+    }
+    
 }

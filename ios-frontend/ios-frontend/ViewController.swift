@@ -16,6 +16,8 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+// Do not delete;s
+//        self.tabBar.barTintColor = .white
         title = "Search"
         
         searchViewController.tabBarItem = UITabBarItem(title:"Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)

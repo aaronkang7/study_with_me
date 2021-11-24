@@ -16,7 +16,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
     var enrollmentLabel = UILabel()
     var deleteButton = UIButton()
     
-    let padding: CGFloat = 20
+    let padding: CGFloat = 25
     let margin: CGFloat = 30
     let height: CGFloat = 20
 
@@ -34,12 +34,12 @@ class CourseCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOpacity = 0.2
         contentView.layer.masksToBounds = false
 
-        nameLabel.font = .systemFont(ofSize: 30)
+        nameLabel.font = UIFont(name: "STHeitiTC-Light", size: 25)
         nameLabel.textColor = .black
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
 
-        codeLabel.font = .systemFont(ofSize: 16)
+        codeLabel.font = UIFont(name:"SanFranciscoDisplay-Light",size: 16)
         codeLabel.textColor = .white
         codeLabel.translatesAutoresizingMaskIntoConstraints = false
         codeLabel.clipsToBounds = true
@@ -52,6 +52,12 @@ class CourseCollectionViewCell: UICollectionViewCell {
         enrollmentLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(enrollmentLabel)
         
+        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        deleteButton.tintColor = .systemRed
+        deleteButton.layer.cornerRadius = 10
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        contentView.addSubview(deleteButton)
 
         setupConstraints()
     }
@@ -60,28 +66,39 @@ class CourseCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func deleteButtonTapped(){
+        //NetworkingManager DELETE course from user course array
+        print("Deleted")
+    }
+    
     func configure(for course: Course) {
-        nameLabel.text = course.name
-        codeLabel.text = "  \(course.class_code)  "
+        nameLabel.text = course.name.uppercased()
+        codeLabel.text = "  \(course.class_code.uppercased())  "
         enrollmentLabel.text = String(course.enrollment) + " students enrolled"
     }
     
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            codeLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -5),
-            codeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
+            codeLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -7),
+            codeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             codeLabel.heightAnchor.constraint(equalToConstant: 25)
         ])
         
         NSLayoutConstraint.activate([
-            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25)
+            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,constant: 3),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            nameLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 30)
         ])
 
         NSLayoutConstraint.activate([
             enrollmentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            enrollmentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25)
+            enrollmentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding)
+        ])
+        
+        NSLayoutConstraint.activate([
+            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            deleteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding)
         ])
     }
 
