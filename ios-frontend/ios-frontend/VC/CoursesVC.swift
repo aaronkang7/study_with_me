@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol CourseCellDelegate {
+    func handleRemove(input :UIAlertController);
+}
+
 class CoursesVC : UIViewController {
     
     
@@ -28,7 +32,8 @@ class CoursesVC : UIViewController {
         title = "My Courses"
         
         view.backgroundColor = .white
-        courses = [Course(name: "Hello", class_code: "Hello2", department: "Chem", enrollment: 30, professor: "Mr.Hello"),Course(name: "Class Name", class_code: "CS2110", department: "Computer Science", enrollment: 30, professor: "Mr.jdasfidogn"), Course(name: "Multi Calculus", class_code: "MATH1920", department: "Math", enrollment: 285, professor: "Prof1"), Course(name: "IOS Development", class_code: "CS1998", department: "Computer Science", enrollment: 15, professor: "Prof2"), Course(name: "Course Name Here", class_code: "ABC123", department: "No Department", enrollment: 100, professor: "Prof3")]
+        courses = [Course(id: 0,name: "Hello", class_code: "Hello2", department: "Chem", enrollment: 30, professor: "Mr.Hello"),Course(id: 1, name: "Class Name", class_code: "CS2110", department: "Computer Science", enrollment: 30, professor: "Mr.jdasfidogn"), Course(id: 2, name: "Multi Calculus", class_code: "MATH1920", department: "Math", enrollment: 285, professor: "Prof1"), Course(id: 3, name: "IOS Development", class_code: "CS1998", department: "Computer Science", enrollment: 15, professor: "Prof2"), Course(id: 4, name: "Course Name Here", class_code: "ABC123", department: "No Department", enrollment: 100, professor: "Prof3")]
+        courseData = courses
         setupViews()
         setupConstraints()
     }
@@ -80,6 +85,7 @@ extension CoursesVC: UICollectionViewDataSource {
         let cell = courseCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CourseCollectionViewCell
         let course = courses[indexPath.item]
         cell.configure(for: course)
+        cell.delegate = self
         return cell
     }
     
@@ -94,10 +100,23 @@ extension CoursesVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = courseCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        let course = courses[indexPath.item]
+        
+        let id = self.courseData[indexPath[1]].id
+        print(id)
+        
+        let viewController = StudentsVC()
+        
+        show(viewController, sender: self)
         
         
     }
+    
+}
+
+extension CoursesVC: CourseCellDelegate{
+    func handleRemove(input: UIAlertController) {
+        present(input, animated: true)
+    }
+    
     
 }

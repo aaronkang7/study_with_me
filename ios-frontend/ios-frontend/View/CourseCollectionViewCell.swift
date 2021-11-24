@@ -10,11 +10,16 @@ import UIKit
 import SnapKit
 
 class CourseCollectionViewCell: UICollectionViewCell {
-
+    
+    var course_id: Int = -1;
+    
+    var delegate : CourseCellDelegate?
     var nameLabel = UILabel()
     var codeLabel = UILabel()
     var enrollmentLabel = UILabel()
     var deleteButton = UIButton()
+    
+    let removeAlert = UIAlertController(title: "Drop Class?", message: nil, preferredStyle: .alert)
     
     let padding: CGFloat = 25
     let margin: CGFloat = 30
@@ -58,6 +63,13 @@ class CourseCollectionViewCell: UICollectionViewCell {
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         contentView.addSubview(deleteButton)
+        
+        removeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        removeAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            //TODO: Replace with networking manager later
+            print("done deleting \(self.course_id)");
+        }))
+        
 
         setupConstraints()
     }
@@ -67,11 +79,11 @@ class CourseCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func deleteButtonTapped(){
-        //NetworkingManager DELETE course from user course array
-        print("Deleted")
+        delegate?.handleRemove(input: removeAlert)
     }
     
     func configure(for course: Course) {
+        self.course_id = course.id
         nameLabel.text = course.name.uppercased()
         codeLabel.text = "  \(course.class_code.uppercased())  "
         enrollmentLabel.text = String(course.enrollment) + " students enrolled"

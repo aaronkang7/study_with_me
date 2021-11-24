@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class Course: Codable {
+    var id: Int
     var name: String
     var class_code: String
     var department: String
@@ -16,7 +17,8 @@ class Course: Codable {
     var professor: String
     
     
-    init(name: String, class_code: String, department: String, enrollment: Int, professor: String) {
+    init(id: Int, name: String, class_code: String, department: String, enrollment: Int, professor: String) {
+        self.id = id
         self.name = name
         self.class_code = class_code
         self.department = department
