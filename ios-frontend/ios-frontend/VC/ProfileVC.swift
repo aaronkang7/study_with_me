@@ -7,10 +7,12 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 import SnapKit
 
 class ProfileVC : UIViewController{
     
+    var rectview: UIView!
     var profileImage: UIImageView!
     var name: UILabel!
     var year: UILabel!
@@ -21,7 +23,7 @@ class ProfileVC : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 154/255, green: 203/255, blue: 255/255, alpha: 1)
         self.title = "Profile"
         
         setupViews()
@@ -29,11 +31,28 @@ class ProfileVC : UIViewController{
     }
     
     func setupViews(){
+        
+        
+        let roundedRectangle = CGRect(x: 0, y: 350, width: view.safeAreaLayoutGuide.layoutFrame.width, height: view.safeAreaLayoutGuide.layoutFrame.height - 350)
+        
+        rectview = UIView(frame: roundedRectangle);
+        rectview.backgroundColor = .white
+        rectview.layer.cornerRadius = 30
+        rectview.layer.borderWidth = 0.0
+        rectview.layer.shadowColor = UIColor.black.cgColor
+        rectview.layer.shadowOffset = CGSize(width: 0, height: 0)
+        rectview.layer.shadowRadius = 10.0
+        rectview.layer.shadowOpacity = 0.2
+        rectview.layer.masksToBounds = false
+        view.addSubview(rectview)
+        
         profileImage = UIImageView()
         profileImage.image = UIImage(systemName: "person.crop.circle.fill")
         profileImage.contentMode = .scaleAspectFill
         profileImage.clipsToBounds = true
         profileImage.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.layer.cornerRadius = 65
+        profileImage.backgroundColor = .white
         view.addSubview(profileImage)
         
         name = UILabel()
@@ -74,8 +93,16 @@ class ProfileVC : UIViewController{
     }
    // MARK: Add Profile Image and Bio Constraints
     func setupConstraints(){
+        
         NSLayoutConstraint.activate([
-            name.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 250),
+            profileImage.centerYAnchor.constraint(equalTo: rectview.topAnchor),
+            profileImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 35),
+            profileImage.widthAnchor.constraint(equalToConstant: 130),
+            profileImage.heightAnchor.constraint(equalToConstant: 130)
+        ])
+        
+        NSLayoutConstraint.activate([
+            name.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 60),
             name.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
         NSLayoutConstraint.activate([

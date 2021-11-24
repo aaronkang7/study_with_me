@@ -10,11 +10,17 @@ import UIKit
 
 class SearchVC : UIViewController{
     
+    
+    var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         self.title = "Search"
+        
+        searchBar = UISearchBar()
+        
     }
 }
 

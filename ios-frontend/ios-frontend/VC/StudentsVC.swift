@@ -95,7 +95,7 @@ extension StudentsVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numItemsPerRow: CGFloat = 1.0
         let size = (collectionView.frame.width - 10) / numItemsPerRow
-        return CGSize(width: size-20, height: size / 2 - 70)
+        return CGSize(width: size-20, height: size / 2 - 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
