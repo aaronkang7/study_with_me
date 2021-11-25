@@ -40,6 +40,8 @@ class CourseCollectionViewCell: UICollectionViewCell {
         contentView.layer.masksToBounds = false
 
         nameLabel.font = UIFont(name: "STHeitiTC-Light", size: 25)
+        nameLabel.numberOfLines = 1;
+        nameLabel.lineBreakMode = .byTruncatingTail
         nameLabel.textColor = .black
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
@@ -100,7 +102,8 @@ class CourseCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,constant: 3),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            nameLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 30)
+            nameLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 30),
+            nameLabel.widthAnchor.constraint(equalToConstant: 260)
         ])
 
         NSLayoutConstraint.activate([

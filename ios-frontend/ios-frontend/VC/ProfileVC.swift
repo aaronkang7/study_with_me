@@ -56,37 +56,37 @@ class ProfileVC : UIViewController{
         view.addSubview(profileImage)
         
         name = UILabel()
-        name.text = "First Lastname"
+        name.text = "AARON KANG"
         name.textColor = .black
-        name.font = UIFont(name: "Inter-Regular", size: 24)
+        name.font = UIFont(name: "Helvetica-BoldOblique", size: 26)
         name.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(name)
         
         year = UILabel()
         year.text = "Year"
         year.textColor = .black //change later
-        year.font = UIFont(name: "Inter-Regular", size: 24)
+        year.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         year.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(year)
         
         major = UILabel()
         major.text = "Major"
         major.textColor = .black //change later
-        major.font = UIFont(name: "Inter-Regular", size: 24)
+        major.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         major.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(major)
         
         email = UILabel()
-        email.text = "Email"
+        email.text = "uk44@cornell.edu"
         email.textColor = .black //change later
-        email.font = UIFont(name: "Inter-Regular", size: 24)
+        email.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         email.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(email)
         
         bio = UITextField()
         bio.placeholder = "Bio"
         bio.textColor = .black
-        bio.font = UIFont(name: "Inter-Regular", size: 12)
+        bio.font = UIFont(name: "Arial-ItalicMT", size: 12)
         bio.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bio)
         
@@ -102,20 +102,22 @@ class ProfileVC : UIViewController{
         ])
         
         NSLayoutConstraint.activate([
-            name.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 60),
-            name.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            name.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 17),
+            name.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            email.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 9),
+            email.leadingAnchor.constraint(equalTo: name.leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            year.topAnchor.constraint(equalTo: email.bottomAnchor, constant: 9),
+            year.leadingAnchor.constraint(equalTo: email.leadingAnchor)
         ])
         NSLayoutConstraint.activate([
-            year.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 20),
-            year.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            major.topAnchor.constraint(equalTo: year.bottomAnchor, constant: 20),
-            major.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            email.topAnchor.constraint(equalTo: major.bottomAnchor, constant: 20),
-            email.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            major.topAnchor.constraint(equalTo: email.bottomAnchor, constant: 9),
+            major.leadingAnchor.constraint(equalTo: year.trailingAnchor, constant: 10)
         ])
     }
 }
