@@ -7,5 +7,5 @@ target ‘ios-frontend’ do
  
   # Pods for ios-frontend
   pod 'Alamofire'
-  pod ‘SnapKit'
+  pod 'SnapKit'
 end 

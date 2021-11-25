@@ -22,6 +22,7 @@
 		E94E6E6E2748496200546FD0 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E6E6D2748496200546FD0 /* Student.swift */; };
 		E950517A274DC0D800487A12 /* StudentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9505179274DC0D800487A12 /* StudentsVC.swift */; };
 		E950517D274DC0F800487A12 /* StudentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E950517C274DC0F800487A12 /* StudentCollectionViewCell.swift */; };
+		E9505180274F11F700487A12 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E950517F274F11F700487A12 /* NetworkManager.swift */; };
 		E9AF36842749CB2900800E32 /* CourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF36832749CB2900800E32 /* CourseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		E94E6E6D2748496200546FD0 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		E9505179274DC0D800487A12 /* StudentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsVC.swift; sourceTree = "<group>"; };
 		E950517C274DC0F800487A12 /* StudentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCollectionViewCell.swift; sourceTree = "<group>"; };
+		E950517F274F11F700487A12 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E9AF36832749CB2900800E32 /* CourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				E94E6E4E27476ADD00546FD0 /* Assets.xcassets */,
 				E94E6E5027476ADD00546FD0 /* LaunchScreen.storyboard */,
 				E94E6E5327476ADD00546FD0 /* Info.plist */,
+				E950517F274F11F700487A12 /* NetworkManager.swift */,
 			);
 			path = "ios-frontend";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				E94E6E6A2748495400546FD0 /* Course.swift in Sources */,
 				E94E6E61274825B200546FD0 /* ProfileVC.swift in Sources */,
 				E94E6E5B2748259C00546FD0 /* SearchVC.swift in Sources */,
+				E9505180274F11F700487A12 /* NetworkManager.swift in Sources */,
 				E950517A274DC0D800487A12 /* StudentsVC.swift in Sources */,
 				E950517D274DC0F800487A12 /* StudentCollectionViewCell.swift in Sources */,
 				E9AF36842749CB2900800E32 /* CourseCollectionViewCell.swift in Sources */,
