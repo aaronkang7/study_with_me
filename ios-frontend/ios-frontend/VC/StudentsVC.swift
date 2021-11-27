@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol StudentCellDelegate {
+    func handleAlert(input :UIAlertController);
+}
+
 class StudentsVC : UIViewController {
     //var courseTableView: UITableView!
     var studentsCollectionView: UICollectionView!
@@ -85,6 +89,7 @@ extension StudentsVC: UICollectionViewDataSource {
         let cell = studentsCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! StudentCollectionViewCell
         let student = students[indexPath.item]
         cell.configure(for: student)
+        cell.delegate = self
         return cell
     }
     
@@ -101,10 +106,16 @@ extension StudentsVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = studentsCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         let student = students[indexPath.item]
-        print("hello")
-        
+        let viewController = ProfileVC(name: student.name, year: student.year, major: student.major, email: student.email, bio: student.bio)
+        present(viewController, animated: true)
         
     }
     
+}
+
+extension StudentsVC: StudentCellDelegate{
+    func handleAlert(input: UIAlertController) {
+        present(input, animated: true)
+    }
 }
 

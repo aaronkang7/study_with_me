@@ -11,7 +11,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     
     let searchViewController = SearchVC()
     let coursesViewController = CoursesVC()
-    let profileViewController = ProfileVC()
+    let profileViewController = ProfileVC(name: "Aaron Kang", year: 2023, major: "CS", email: "uk44@cornell.edu", bio: "hello")
     
     override func viewDidLoad() {
         super.viewDidLoad()

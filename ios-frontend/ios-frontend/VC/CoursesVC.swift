@@ -103,7 +103,7 @@ extension CoursesVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayou
         
         let id = self.courseData[indexPath[1]].id
         print(id)
-        
+        //TODO: Use id to fetch students in course
         let viewController = StudentsVC()
         
         show(viewController, sender: self)
@@ -117,6 +117,4 @@ extension CoursesVC: CourseCellDelegate{
     func handleRemove(input: UIAlertController) {
         present(input, animated: true)
     }
-    
-    
 }

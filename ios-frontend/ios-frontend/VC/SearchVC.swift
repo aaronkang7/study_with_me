@@ -21,6 +21,13 @@ class SearchVC : UIViewController{
         
         searchBar = UISearchBar()
         
+        setupConstraints()
+        
+    }
+    
+    func setupConstraints(){
+
+        
     }
 }
 

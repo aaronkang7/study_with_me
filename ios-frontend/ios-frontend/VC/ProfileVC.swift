@@ -13,12 +13,32 @@ import SnapKit
 class ProfileVC : UIViewController{
     
     var rectview: UIView!
-    var profileImage: UIImageView!
-    var name: UILabel!
-    var year: UILabel!
-    var major: UILabel!
-    var email: UILabel!
-    var bio: UITextField!
+    var profileImage = UIImageView()
+    var name = UILabel()
+    var year = UILabel()
+    var major = UILabel()
+    var email = UILabel()
+    var bio = UITextField()
+    
+    var nameText: String
+    var yearText: String
+    var majorText: String
+    var emailText: String
+    var bioText: String
+    
+    
+    init(name: String, year: Int, major: String, email: String, bio: String) {
+        self.nameText = name
+        self.yearText = String(year)
+        self.majorText = major
+        self.emailText = email
+        self.bioText = bio
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,35 +76,35 @@ class ProfileVC : UIViewController{
         view.addSubview(profileImage)
         
         name = UILabel()
-        name.text = "AARON KANG"
+        name.text = nameText
         name.textColor = .black
         name.font = UIFont(name: "Helvetica-BoldOblique", size: 26)
         name.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(name)
         
         year = UILabel()
-        year.text = "Year"
+        year.text = yearText
         year.textColor = .black //change later
         year.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         year.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(year)
         
         major = UILabel()
-        major.text = "Major"
+        major.text = majorText
         major.textColor = .black //change later
         major.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         major.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(major)
         
         email = UILabel()
-        email.text = "uk44@cornell.edu"
+        email.text = emailText
         email.textColor = .black //change later
         email.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         email.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(email)
         
         bio = UITextField()
-        bio.placeholder = "Bio"
+        bio.placeholder = bioText
         bio.textColor = .black
         bio.font = UIFont(name: "Arial-ItalicMT", size: 12)
         bio.translatesAutoresizingMaskIntoConstraints = false
