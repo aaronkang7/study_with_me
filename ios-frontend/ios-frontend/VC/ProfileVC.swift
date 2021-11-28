@@ -14,6 +14,7 @@ class ProfileVC : UIViewController{
     
     var rectview: UIView!
     var profileImage = UIImageView()
+    var ceilingLight = UIImageView()
     var name = UILabel()
     var year = UILabel()
     var major = UILabel()
@@ -43,7 +44,7 @@ class ProfileVC : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(red: 154/255, green: 203/255, blue: 255/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 11/255, green: 11/255, blue: 69/255, alpha: 1)
         self.title = "Profile"
         
         setupViews()
@@ -66,7 +67,12 @@ class ProfileVC : UIViewController{
         rectview.layer.masksToBounds = false
         view.addSubview(rectview)
         
-        profileImage = UIImageView()
+        ceilingLight.image = UIImage(named: "ceiling-light")
+        ceilingLight.contentMode = .scaleAspectFill
+        ceilingLight.clipsToBounds = true
+        ceilingLight.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ceilingLight)
+    
         profileImage.image = UIImage(systemName: "person.crop.circle.fill")
         profileImage.contentMode = .scaleAspectFill
         profileImage.clipsToBounds = true
@@ -75,35 +81,30 @@ class ProfileVC : UIViewController{
         profileImage.backgroundColor = .white
         view.addSubview(profileImage)
         
-        name = UILabel()
         name.text = nameText
         name.textColor = .black
         name.font = UIFont(name: "Helvetica-BoldOblique", size: 26)
         name.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(name)
         
-        year = UILabel()
         year.text = yearText
         year.textColor = .black //change later
         year.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         year.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(year)
-        
-        major = UILabel()
+
         major.text = majorText
         major.textColor = .black //change later
         major.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         major.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(major)
-        
-        email = UILabel()
+
         email.text = emailText
         email.textColor = .black //change later
         email.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         email.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(email)
-        
-        bio = UITextField()
+
         bio.placeholder = bioText
         bio.textColor = .black
         bio.font = UIFont(name: "Arial-ItalicMT", size: 12)
@@ -119,6 +120,13 @@ class ProfileVC : UIViewController{
             profileImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 35),
             profileImage.widthAnchor.constraint(equalToConstant: 130),
             profileImage.heightAnchor.constraint(equalToConstant: 130)
+        ])
+        
+        NSLayoutConstraint.activate([
+            ceilingLight.centerXAnchor.constraint(equalTo: profileImage.centerXAnchor),
+            ceilingLight.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            ceilingLight.widthAnchor.constraint(equalToConstant: 100),
+            ceilingLight.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         NSLayoutConstraint.activate([

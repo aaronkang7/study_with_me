@@ -39,14 +39,14 @@ class CourseCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOpacity = 0.2
         contentView.layer.masksToBounds = false
 
-        nameLabel.font = UIFont(name: "STHeitiTC-Light", size: 25)
+        nameLabel.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.semibold)
         nameLabel.numberOfLines = 1;
         nameLabel.lineBreakMode = .byTruncatingTail
         nameLabel.textColor = .black
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
 
-        codeLabel.font = UIFont(name:"SanFranciscoDisplay-Light",size: 16)
+        codeLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.light)
         codeLabel.textColor = .white
         codeLabel.translatesAutoresizingMaskIntoConstraints = false
         codeLabel.clipsToBounds = true
@@ -54,7 +54,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
         codeLabel.layer.cornerRadius = 6
         contentView.addSubview(codeLabel)
 
-        enrollmentLabel.font = .systemFont(ofSize: 15)
+        enrollmentLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)
         enrollmentLabel.textColor = .black
         enrollmentLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(enrollmentLabel)

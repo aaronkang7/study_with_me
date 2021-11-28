@@ -48,7 +48,7 @@ class StudentCollectionViewCell: UICollectionViewCell {
         profileImage.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(profileImage)
 
-        nameLabel.font = UIFont(name: "STHeitiTC-Light", size: 24)
+        nameLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.regular)
         nameLabel.textColor = .black
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
@@ -58,7 +58,7 @@ class StudentCollectionViewCell: UICollectionViewCell {
 //        yearLabel.translatesAutoresizingMaskIntoConstraints = false
 //        contentView.addSubview(yearLabel)
 
-        bioLabel.font = .systemFont(ofSize: 14)
+        bioLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
         bioLabel.textColor = .black
         bioLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(bioLabel)

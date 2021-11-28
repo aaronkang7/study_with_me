@@ -12,13 +12,22 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     let searchViewController = SearchVC()
     let coursesViewController = CoursesVC()
     let profileViewController = ProfileVC(name: "Aaron Kang", year: 2023, major: "CS", email: "uk44@cornell.edu", bio: "hello")
+    var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-// Do not delete;s
-//        self.tabBar.barTintColor = .white
-        title = "Search"
+        
+        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        titleLabel.text = "Search"
+        titleLabel.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.semibold)
+        titleLabel.textColor = .black
+        titleLabel.backgroundColor = .white
+        navigationItem.titleView = titleLabel
+        
+        
+        
+        self.tabBar.barTintColor = .white
         
         searchViewController.tabBarItem = UITabBarItem(title:"Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         searchViewController.title = "Hello"
@@ -36,7 +45,15 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
-        self.title = viewController.title
+        if (viewController.title == "Profile"){
+            titleLabel.backgroundColor = UIColor(red: 11/255, green: 11/255, blue: 69/255, alpha: 1)
+            titleLabel.textColor = .white
+            titleLabel.text = "Profile"
+        } else{
+            titleLabel.text = viewController.title
+            titleLabel.backgroundColor = .white
+            titleLabel.textColor = .black
+        }
     }
 
 

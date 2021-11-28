@@ -20,8 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             let viewController = ViewController()
-            window.rootViewController = UINavigationController(rootViewController: viewController)
-//            UINavigationBar.appearance().barTintColor = UIColor(red: 234.0/255.0, green: 46.0/255.0, blue: 73.0/255.0, alpha: 1.0)
+            let navController = UINavigationController(rootViewController: viewController)
+            navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navController.navigationBar.shadowImage = UIImage()
+            window.rootViewController = navController
+//            UINavigationBar.appearance().barTintColor = UIColor(red: 234.0/255.0, green: 46.0/255.0, blue: 73.0/255.0, alpha: 0/1)
+//            UINavigationBar.appearance().isTranslucent = true
             self.window = window
         }
     }
