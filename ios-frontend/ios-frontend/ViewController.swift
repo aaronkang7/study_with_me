@@ -19,7 +19,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        titleLabel.text = "Search"
+        titleLabel.text = "  Search"
         titleLabel.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.semibold)
         titleLabel.textColor = .black
         titleLabel.backgroundColor = .white
@@ -29,13 +29,13 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         
         self.tabBar.barTintColor = .white
         
-        searchViewController.tabBarItem = UITabBarItem(title:"Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        searchViewController.tabBarItem = UITabBarItem(title:"  Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         searchViewController.title = "Hello"
         
-        coursesViewController.tabBarItem = UITabBarItem(title:"Courses", image: UIImage(systemName: "books.vertical"), tag: 1)
-        coursesViewController.title = "My Courses"
+        coursesViewController.tabBarItem = UITabBarItem(title:"  Courses", image: UIImage(systemName: "books.vertical"), tag: 1)
+        coursesViewController.title = " My Courses"
         
-        profileViewController.tabBarItem = UITabBarItem(title:"Profile", image: UIImage(systemName: "person.crop.circle.fill"), tag: 2)
+        profileViewController.tabBarItem = UITabBarItem(title:"  Profile", image: UIImage(systemName: "person.crop.circle.fill"), tag: 2)
         
         
         let viewControllerList = [ searchViewController, coursesViewController, profileViewController ]
@@ -48,9 +48,9 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         if (viewController.title == "Profile"){
             titleLabel.backgroundColor = UIColor(red: 11/255, green: 11/255, blue: 69/255, alpha: 1)
             titleLabel.textColor = .white
-            titleLabel.text = "Profile"
+            titleLabel.text = "  Profile"
         } else{
-            titleLabel.text = viewController.title
+            titleLabel.text = "  \(String(viewController.title!))"
             titleLabel.backgroundColor = .white
             titleLabel.textColor = .black
         }

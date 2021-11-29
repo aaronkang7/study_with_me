@@ -53,11 +53,6 @@ class StudentCollectionViewCell: UICollectionViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
 
-//        yearLabel.font = UIFont(name:"SanFranciscoDisplay-Light",size: 12)
-//        yearLabel.textColor = .black
-//        yearLabel.translatesAutoresizingMaskIntoConstraints = false
-//        contentView.addSubview(yearLabel)
-
         bioLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
         bioLabel.textColor = .black
         bioLabel.translatesAutoresizingMaskIntoConstraints = false
