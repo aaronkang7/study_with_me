@@ -13,6 +13,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     let searchVC = SearchVC()
     let coursesViewController = CoursesVC()
     let profileViewController = ProfileVC(name: "Aaron Kang", year: 2023, major: "CS", email: "uk44@cornell.edu", bio: "hello")
+    let searchBar = UISearchController()
     var titleLabel: UILabel!
     
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
+        
         if (viewController.title == "Profile"){
 //            titleLabel.backgroundColor = UIColor(red: 11/255, green: 11/255, blue: 69/255, alpha: 1)
 //            titleLabel.textColor = .white
@@ -55,10 +57,13 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         } else{
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
             title = viewController.title
-//            titleLabel.text = "  \(String(viewController.title!))"
-//            titleLabel.backgroundColor = .white
-//            titleLabel.textColor = .black
         }
+        
+//        if (viewController.title == "Profile"){
+//            self.searchBar.searchBar.isHidden = true
+//        } else{
+//            self.searchBar.searchBar.isHidden = false
+//        }
     }
 
 
