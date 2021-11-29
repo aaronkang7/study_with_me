@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UITabBarController, UITabBarControllerDelegate {
     
     let searchViewController = SearchVC()
+    let searchVC = SearchVC()
     let coursesViewController = CoursesVC()
     let profileViewController = ProfileVC(name: "Aaron Kang", year: 2023, major: "CS", email: "uk44@cornell.edu", bio: "hello")
     var titleLabel: UILabel!
@@ -18,14 +19,13 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         
-        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        titleLabel.text = "  Search"
-        titleLabel.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.semibold)
-        titleLabel.textColor = .black
-        titleLabel.backgroundColor = .white
-        navigationItem.titleView = titleLabel
-        
-        
+//        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+//        titleLabel.text = "  Search"
+//        titleLabel.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.semibold)
+//        titleLabel.textColor = .black
+//        titleLabel.backgroundColor = .white
+//        navigationItem.titleView = titleLabel
+        title = "Search"
         
         self.tabBar.barTintColor = .white
         
@@ -46,13 +46,18 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
         if (viewController.title == "Profile"){
-            titleLabel.backgroundColor = UIColor(red: 11/255, green: 11/255, blue: 69/255, alpha: 1)
-            titleLabel.textColor = .white
-            titleLabel.text = "  Profile"
+//            titleLabel.backgroundColor = UIColor(red: 11/255, green: 11/255, blue: 69/255, alpha: 1)
+//            titleLabel.textColor = .white
+//            titleLabel.text = "  Profile"
+//            navigationItem.titleView
+            title = "Profile"
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         } else{
-            titleLabel.text = "  \(String(viewController.title!))"
-            titleLabel.backgroundColor = .white
-            titleLabel.textColor = .black
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+            title = viewController.title
+//            titleLabel.text = "  \(String(viewController.title!))"
+//            titleLabel.backgroundColor = .white
+//            titleLabel.textColor = .black
         }
     }
 

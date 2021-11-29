@@ -11,15 +11,16 @@ import UIKit
 class SearchVC : UIViewController{
     
     
-    var searchBar: UISearchBar!
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .yellow
         self.title = "Search"
         
-        searchBar = UISearchBar()
+        searchController = UISearchController()
+        navigationItem.searchController = searchController
         
         setupConstraints()
         

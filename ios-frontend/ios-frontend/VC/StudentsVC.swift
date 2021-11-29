@@ -35,7 +35,7 @@ class StudentsVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Students"
-        
+        navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .white
         students = [Student(id: 0, name: "Aaron", email: "uk44@cornell.edu", year: 2023, major: "Computer Science", bio: "Looking for study partners!")]
         setupViews()

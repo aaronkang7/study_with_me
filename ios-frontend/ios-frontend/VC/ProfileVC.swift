@@ -43,6 +43,7 @@ class ProfileVC : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         view.backgroundColor = UIColor(red: 11/255, green: 11/255, blue: 69/255, alpha: 1)
         self.title = "Profile"
