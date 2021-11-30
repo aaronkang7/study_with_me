@@ -18,8 +18,11 @@ class CourseCollectionViewCell: UICollectionViewCell {
     var codeLabel = UILabel()
     var enrollmentLabel = UILabel()
     var deleteButton = UIButton()
+    var addButton = UIButton()
     
     let removeAlert = UIAlertController(title: "Drop Class?", message: nil, preferredStyle: .alert)
+    
+    let addAlert = UIAlertController(title: "Add Class?", message: nil, preferredStyle: .alert)
     
     let padding: CGFloat = 25
     let margin: CGFloat = 30
@@ -72,6 +75,19 @@ class CourseCollectionViewCell: UICollectionViewCell {
             print("done deleting \(self.course_id)");
         }))
         
+        //MARK: Make Search Only
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.tintColor = .systemBlue
+        addButton.layer.cornerRadius = 10
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        contentView.addSubview(addButton)
+        
+        addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        addAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            print("done adding \(self.course_id)")
+        }))
+        
 
         setupConstraints()
     }
@@ -82,6 +98,10 @@ class CourseCollectionViewCell: UICollectionViewCell {
     
     @objc func deleteButtonTapped(){
         delegate?.handleRemove(input: removeAlert)
+    }
+    
+    @objc func addButtonTapped() {
+        delegate?.handleRemove(input: addAlert)
     }
     
     func configure(for course: Course) {
@@ -114,6 +134,11 @@ class CourseCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             deleteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding)
+        ])
+        
+        NSLayoutConstraint.activate([
+            addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            addButton.topAnchor.constraint(equalTo: deleteButton.bottomAnchor, constant: padding)
         ])
     }
 

@@ -16,8 +16,6 @@ protocol CourseCellDelegate {
 class CoursesVC : UIViewController {
     
     
-    
-    //var courseTableView: UITableView!
     var courseCollectionView: UICollectionView!
     var courseData: [Course] = []
     
@@ -67,6 +65,11 @@ class CoursesVC : UIViewController {
             courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
         
+        //MARK: Network
+        func getCourses() {
+            NetworkManager.getCourses()
+            
+        }
 }
 
 
