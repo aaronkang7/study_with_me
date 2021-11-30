@@ -82,7 +82,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         contentView.addSubview(addButton)
-        
+
         addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         addAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
             print("done adding \(self.course_id)")

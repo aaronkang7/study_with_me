@@ -66,10 +66,10 @@ class CoursesVC : UIViewController {
         ])
         
         //MARK: Network
-        func getCourses() {
-            NetworkManager.getCourses()
-            
-        }
+//        func getCourses() {
+//            NetworkManager.getCourses()
+//
+//        }
 }
 
 
