@@ -106,14 +106,7 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let id = self.courseData[indexPath[1]].id
-        print(id)
-        //TODO: Use id to fetch students in course
-        let viewController = StudentsVC()
-        
-        show(viewController, sender: self)
-        
-        
+        return
     }
     
 }
