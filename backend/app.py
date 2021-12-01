@@ -8,7 +8,7 @@ from flask import Flask
 from flask import request
 
 # define db filename
-db_filename = "cms.db"
+db_filename = "courses.db"
 app = Flask(__name__)
 
 # setup config
@@ -108,7 +108,6 @@ def add_user_to_course(course_id):
         return failure_response("Course not found!")
     body = json.loads(request.data)
     user_id = body.get("user_id")
-    type = body.get("type")
     user = User.query.filter_by(id=user_id).first()
     if type == "instructor":
         course.instructors.append(user)
@@ -140,4 +139,5 @@ def create_assignment(course_id):
 
 
 if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
     app.run(host="0.0.0.0", port=5000, debug=True)

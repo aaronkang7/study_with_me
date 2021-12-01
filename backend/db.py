@@ -10,13 +10,6 @@ association_table = db.Table(
     db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
 )
 
-association_table_2 = db.Table(
-    "association_2",
-    db.Model.metadata,
-    db.Column("course_id", db.Integer, db.ForeignKey("course.id")),
-    db.Column("user_id", db.Integer, db.ForeignKey("user.id"))
-)
-
 class Course(db.Model):
     __tablename__ = 'course'
     id = db.Column(db.Integer, primary_key = True)
@@ -26,8 +19,7 @@ class Course(db.Model):
     professor = db.Column(db.String, nullable = False)
     prerequisites = db.Column(db.String, nullable = False)
     assignments = db.relationship("Assignment", cascade="delete")
-    instructors = db.relationship("User", secondary=association_table, back_populates="courses_instructor")
-    students = db.relationship("User", secondary=association_table_2, back_populates="courses_student")
+    students = db.relationship("User", secondary=association_table, back_populates="courses_student")
 
     def __init__(self, **kwargs):
         self.code = kwargs.get("code")
@@ -45,7 +37,6 @@ class Course(db.Model):
             "professor": self.professor,
             "prerequisites": [p.sub_serialize() for p in self.prerequisites],
             "assignments": [a.sub_serialize() for a in self.assignments],
-            "instructors": [i.sub_serialize() for i in self.instructors],
             "students": [s.sub_serialize() for s in self.students],
         }
 
@@ -101,8 +92,7 @@ class User(db.Model):
     email = db.Column(db.String, nullable = False)
     major = db.Column(db.String, nullable = False)
     grad_year = db.Column(db.Integer, nullable = False)
-    courses_instructor = db.relationship("Course", secondary=association_table, back_populates = "instructors")
-    courses_student = db.relationship("Course", secondary=association_table_2, back_populates = "students")
+    courses_student = db.relationship("Course", secondary=association_table, back_populates = "students")
 
     def __init__(self, **kwargs):
         self.name = kwargs.get("name")
@@ -119,7 +109,7 @@ class User(db.Model):
             "email": self.email,
             "major": self.major,
             "graduation year": self.grad_year,
-            "courses": [c.sub_serialize() for c in self.courses_student] + [c.sub_serialize() for c in self.courses_instructor]
+            "courses": [c.sub_serialize() for c in self.courses_student]
         }
 
     def sub_serialize(self):
@@ -131,55 +121,3 @@ class User(db.Model):
             "major": self.major,
             "graduation year": self.grad_year,
         }
-
-# class Instructor(db.Model):
-#     __tablename__ = 'instructor'
-#     id = db.Column(db.Integer, primary_key = True)
-#     name = db.Column(db.String, nullable = False)
-#     netid = db.Column(db.String, nullable = False)
-#     courses = db.relationship("Course", secondary=association_table, back_populates = "instructors")
-#
-#     def __init__(self, **kwargs):
-#         self.name = kwargs.get("name")
-#         self.netid = kwargs.get("netid")
-#
-#     def serialize(self):
-#         return {
-#             "id": self.id,
-#             "name": self.name,
-#             "netid": self.netid,
-#             "courses": [c.serialize() for c in self.courses]
-#         }
-#
-#     def sub_serialize(self):
-#         return {
-#             "id": self.id,
-#             "name": self.name,
-#             "netid": self.netid,
-#         }
-#
-# class Student(db.Model):
-#     __tablename__ = 'student'
-#     id = db.Column(db.Integer, primary_key = True)
-#     name = db.Column(db.String, nullable = False)
-#     netid = db.Column(db.String, nullable = False)
-#     courses = db.relationship("Course", secondary=association_table, back_populates = "student")
-#
-#     def __init__(self, **kwargs):
-#         self.name = kwargs.get("name")
-#         self.netid = kwargs.get("netid")
-#
-#     def serialize(self):
-#         return {
-#             "id": self.id,
-#             "name": self.name,
-#             "netid": self.netid,
-#             "courses": [c.serialize() for c in self.courses]
-#         }
-#
-#     def sub_serialize(self):
-#         return {
-#             "id": self.id,
-#             "name": self.name,
-#             "netid": self.netid,
-#         }
