@@ -89,7 +89,7 @@ extension SearchVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = courseCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CourseCollectionViewCell
         let course = courses[indexPath.item]
-        cell.configure(for: course)
+        cell.configure(for: course, isSearch: true)
         cell.delegate = self
         return cell
     }

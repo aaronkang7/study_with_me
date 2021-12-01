@@ -17,8 +17,8 @@ class CourseCollectionViewCell: UICollectionViewCell {
     var nameLabel = UILabel()
     var codeLabel = UILabel()
     var enrollmentLabel = UILabel()
-    var deleteButton = UIButton()
-    var addButton = UIButton()
+    var actionButton = UIButton()
+    var isSearch = false
     
     let removeAlert = UIAlertController(title: "Drop Class?", message: nil, preferredStyle: .alert)
     
@@ -62,12 +62,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
         enrollmentLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(enrollmentLabel)
         
-        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
-        deleteButton.tintColor = .systemRed
-        deleteButton.layer.cornerRadius = 10
-        deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-        contentView.addSubview(deleteButton)
+        
         
         removeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         removeAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
@@ -76,12 +71,7 @@ class CourseCollectionViewCell: UICollectionViewCell {
         }))
         
         //MARK: Make Search Only
-        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
-        addButton.tintColor = .systemBlue
-        addButton.layer.cornerRadius = 10
-        addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        contentView.addSubview(addButton)
+        
 
         addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         addAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
@@ -104,11 +94,34 @@ class CourseCollectionViewCell: UICollectionViewCell {
         delegate?.handleRemove(input: addAlert)
     }
     
-    func configure(for course: Course) {
+    func configure(for course: Course, isSearch: Bool) {
+        self.isSearch = isSearch
+        loadButton()
         self.course_id = course.id
         nameLabel.text = course.name.uppercased()
         codeLabel.text = "  \(course.class_code.uppercased())  "
         enrollmentLabel.text = String(course.enrollment) + " students enrolled"
+    }
+    
+    func loadButton(){
+        actionButton.layer.cornerRadius = 10
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        if(isSearch){
+            actionButton.setImage(UIImage(systemName: "plus"), for: .normal)
+            actionButton.tintColor = .systemBlue
+            actionButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        } else{
+            actionButton.setImage(UIImage(systemName: "trash"), for: .normal)
+            actionButton.tintColor = .systemRed
+            actionButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        }
+        contentView.addSubview(actionButton)
+        
+        NSLayoutConstraint.activate([
+            actionButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            actionButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding)
+        ])
+        
     }
     
     func setupConstraints() {
@@ -131,15 +144,10 @@ class CourseCollectionViewCell: UICollectionViewCell {
             enrollmentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding)
         ])
         
-        NSLayoutConstraint.activate([
-            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            deleteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding)
-        ])
-        
-        NSLayoutConstraint.activate([
-            addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            addButton.topAnchor.constraint(equalTo: deleteButton.bottomAnchor, constant: padding)
-        ])
+//        NSLayoutConstraint.activate([
+//            addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+//            addButton.topAnchor.constraint(equalTo: deleteButton.bottomAnchor, constant: padding)
+//        ])
     }
 
 }
