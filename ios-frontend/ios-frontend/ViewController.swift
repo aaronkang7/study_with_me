@@ -7,13 +7,24 @@
 
 import UIKit
 
-class ViewController: UITabBarController, UITabBarControllerDelegate {
+class ResultsVC : UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemPink //for testing purposes
+    }
+}
+// MARK: Notes
+// This view controller has the elements of the searchController/SearchVC
+// since it seems to work here rather than over there.
+
+class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     
     let searchViewController = SearchVC()
     let searchVC = SearchVC()
     let coursesViewController = CoursesVC()
     let profileViewController = ProfileVC(name: "Aaron Kang", year: 2023, major: "CS", email: "uk44@cornell.edu", bio: "hello")
-    let searchBar = UISearchController()
+    let searchController = UISearchController(searchResultsController: ResultsVC())
     var titleLabel: UILabel!
     
     override func viewDidLoad() {
@@ -27,6 +38,10 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
 //        titleLabel.backgroundColor = .white
 //        navigationItem.titleView = titleLabel
         title = "Search"
+        navigationItem.searchController = searchController
+        navigationItem.searchController?.searchBar.isHidden = false
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
         
         self.tabBar.barTintColor = .white
         
@@ -45,6 +60,20 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        let vc = searchController.searchResultsController as? ResultsVC
+        vc?.view.backgroundColor = .lightGray
+        print(text)
+    }
+    
+    //MARK: Notes
+    // When switching VCs in the app, the titles change (i.e. "Search"
+    // disappears and "Profile" becomes black cause I think it was supposed
+    // to be white.
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
         
         if (viewController.title == "Profile"){
@@ -53,8 +82,16 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
 //            titleLabel.text = "  Profile"
 //            navigationItem.titleView
             title = "Profile"
+            navigationItem.searchController?.searchBar.isHidden = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        } else{
+        }
+        if (viewController.title == "Search") {
+            title = "Search"
+            navigationItem.searchController?.searchBar.isHidden = false
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        }
+        else {
+            navigationItem.searchController?.searchBar.isHidden = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
             title = viewController.title
         }

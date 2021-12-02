@@ -8,10 +8,22 @@
 import Foundation
 import UIKit
 
-class SearchVC : UIViewController{
+//MARK: Notes
+// So this is the searchController VC but the searchController does
+// not work here at all (at least from my code) so I moved it to the main
+// ViewController where it works better (i.e. the searchBar appears)
+
+//class ResultsVC : UIViewController {
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = .systemGray //for testing purposes
+//    }
+//}
+
+class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate {
     
-    
-    var searchController: UISearchController!
+    let searchController = UISearchController(searchResultsController: nil)
     
     var courseCollectionView: UICollectionView!
     var courseData: [Course] = []
@@ -26,18 +38,35 @@ class SearchVC : UIViewController{
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        self.title = "Search"
+        title = "Search"
         
-        searchController = UISearchController()
-        navigationItem.searchController = searchController
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        
+        
+        //searchController.searchBar.searchBarStyle = .default
+        //searchController.searchResultsUpdater = self
+        //navigationItem.searchController = searchController
+        //self.navigationController?.navigationBar.isTranslucent = true
+        //navigationItem.searchController?.searchBar.isHidden = false
+        //navigationItem.hidesSearchBarWhenScrolling = true
+        //searchController.searchBar.placeholder = "Search Here"
+        //searchController.searchBar.sizeToFit()
         
         courses = [Course(id: 0,name: "Hello", class_code: "Hello2", department: "Chem", enrollment: 30, professor: "Mr.Hello"),Course(id: 1, name: "Class Name", class_code: "CS2110", department: "Computer Science", enrollment: 30, professor: "Mr.jdasfidogn"), Course(id: 2, name: "Multi Calculus", class_code: "MATH1920", department: "Math", enrollment: 285, professor: "Prof1"), Course(id: 3, name: "IOS Development", class_code: "CS1998", department: "Computer Science", enrollment: 15, professor: "Prof2"), Course(id: 4, name: "Course Name Here", class_code: "ABC123", department: "No Department", enrollment: 100, professor: "Prof3"), Course(id: 5, name: "LAST", class_code: "ABC123", department: "No Department", enrollment: 150, professor: "Prof3")]
         courseData = courses
         
-        
         setupViews()
         setupConstraints()
         //getCourses()
+    }
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        let vc = searchController.searchResultsController as? ResultsVC
+        vc?.view.backgroundColor = .blue
+        print(text)
     }
     
     func setupViews(){
@@ -55,16 +84,17 @@ class SearchVC : UIViewController{
         courseCollectionView.dataSource = self
         courseCollectionView.delegate = self
         courseCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
-        view.addSubview(courseCollectionView)
+        //view.addSubview(courseCollectionView)
         
     }
     
     func setupConstraints(){
         NSLayoutConstraint.activate([
-            courseCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            courseCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            //search.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            //courseCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            //courseCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            //courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            //courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
 
         

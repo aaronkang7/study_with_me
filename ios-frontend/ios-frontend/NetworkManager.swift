@@ -8,18 +8,16 @@
 import Alamofire 
 
 class NetworkManager {
-    static let endpoint = "address"
+    static let endpoint = "https://studywithmebackend.herokuapp.com"
     
     //MARK: Get Course
     static func getCourses(completion: @escaping ([Course]) -> Void) {
-//        AF.request(endpoint, method: .get).validate().responseJSON {
-//            response in
+//        AF.request(endpoint, method: .get).validate().responseJSON { response in
 //            switch response.result {
 //            case .success(let data):
 //                let jsonDecoder = JSONDecoder()
 //                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-//                if let courseResponse = try?
-//                    jsonDecoder.decode(CourseResponse.self, from: data) {
+//                if let courseResponse = try? jsonDecoder.decode(courseResponse.self, from: data) {
 //                    let courses = courseResponse.data
 //                    completion(courses)
 //                }
