@@ -1,0 +1,6 @@
+version: "3"
+services:
+  Assignment5:
+    image: "bnw36/a5-containerization"
+    ports:
+      - 5000:5000
