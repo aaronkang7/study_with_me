@@ -105,7 +105,6 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         return
     }
     
