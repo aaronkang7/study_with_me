@@ -1,6 +1,11 @@
 version: "3"
 services:
+<<<<<<< HEAD
   Assignment5:
     image: "bnw36/a5-containerization"
+=======
+  hackchallenge:
+    image: "ethanmah1022/study-with-me"
+>>>>>>> 00aa6ed844a5daecb8ceadd746c4d0e075fef925
     ports:
       - 5000:5000
