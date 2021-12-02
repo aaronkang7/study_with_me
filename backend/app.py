@@ -1,4 +1,5 @@
 import json
+import os
 
 from db import db
 from db import Course
@@ -49,8 +50,8 @@ def create_course():
     name = body.get("name")
     department = body.get("department")
     professor = body.get("professor")
-    prerequisites = body.get("prerequisites")
-    if not code or not name or not department or not professor or not prerequisites:
+    prerequisites = body.get("prerequisites","None")
+    if not code or not name or not department or not professor:
         return failure_response("Missing fields!", 400)
     new_course = Course(code=code, name=name, department=department, professor=professor, prerequisites=prerequisites)
     db.session.add(new_course)
@@ -78,6 +79,11 @@ def delete_course(course_id):
 
 # -- USER ROUTES ---------------------------------------------------
 
+@app.route("/api/users/")
+def get_users():
+    return success_response(
+        {"users": [u.serialize() for u in User.query.all()]}
+    )
 
 @app.route("/api/users/", methods=["POST"])
 def create_user():
@@ -109,10 +115,7 @@ def add_user_to_course(course_id):
     body = json.loads(request.data)
     user_id = body.get("user_id")
     user = User.query.filter_by(id=user_id).first()
-    if type == "instructor":
-        course.instructors.append(user)
-    else:
-        course.students.append(user)
+    course.students.append(user)
     db.session.commit()
     return success_response(course.serialize())
 
@@ -139,5 +142,5 @@ def create_assignment(course_id):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

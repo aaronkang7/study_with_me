@@ -30,7 +30,7 @@ class CoursesVC : UIViewController {
         title = "My Courses"
         
         view.backgroundColor = .white
-        courses = [Course(id: 0,name: "Hello", class_code: "Hello2", department: "Chem", enrollment: 30, professor: "Mr.Hello"),Course(id: 1, name: "Class Name", class_code: "CS2110", department: "Computer Science", enrollment: 30, professor: "Mr.jdasfidogn"), Course(id: 2, name: "Multi Calculus", class_code: "MATH1920", department: "Math", enrollment: 285, professor: "Prof1"), Course(id: 3, name: "IOS Development", class_code: "CS1998", department: "Computer Science", enrollment: 15, professor: "Prof2"), Course(id: 4, name: "Course Name Here", class_code: "ABC123", department: "No Department", enrollment: 100, professor: "Prof3")]
+        courses = [Course(id: 0,name: "Hello", class_code: "Hello2", department: "Chem", enrollment: 30, professor: "Mr.Hello"),Course(id: 1, name: "Class Name", class_code: "CS2110", department: "Computer Science", enrollment: 30, professor: "Mr.jdasfidogn"), Course(id: 2, name: "Multi Calculus", class_code: "MATH1920", department: "Math", enrollment: 285, professor: "Prof1"), Course(id: 3, name: "IOS Development", class_code: "CS1998", department: "Computer Science", enrollment: 15, professor: "Prof2"), Course(id: 4, name: "Course Name Here", class_code: "ABC321", department: "No Department", enrollment: 100, professor: "Prof3")]
         courseData = courses
         setupViews()
         setupConstraints()
