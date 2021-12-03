@@ -109,11 +109,14 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
     //MARK: getCourses()
     func getCourses() {
         NetworkManager.getCourses { courses in
-            self.courses = courses
+            self.courseData = courses
             DispatchQueue.main.async {
                 self.courseCollectionView.reloadData()
             }
         }
+        courses = courseData
+        print(courses!)
+        
 
     }
     

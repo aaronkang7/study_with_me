@@ -70,16 +70,7 @@ class CoursesVC : UIViewController {
         
         
 }
-    //MARK: getCourses()
-    func getCourses() {
-//        NetworkManager.getCourses { courses in
-//            self.courses = courses
-//            DispatchQueue.main.async {
-//                self.courseCollectionView.reloadData()
-//            }
-//        }
 
-}
     
     func getUserById() {
 //        NetworkManager.getUserById(id: Student.id) {

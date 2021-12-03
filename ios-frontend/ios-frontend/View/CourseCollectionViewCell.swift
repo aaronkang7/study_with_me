@@ -20,6 +20,9 @@ class CourseCollectionViewCell: UICollectionViewCell {
     var actionButton = UIButton()
     var isSearch = false
     
+    var courseData: [Course] = []
+    var courses: [Course]!
+    
     let removeAlert = UIAlertController(title: "Drop Class?", message: nil, preferredStyle: .alert)
     
     let addAlert = UIAlertController(title: "Add Class?", message: nil, preferredStyle: .alert)
@@ -67,14 +70,22 @@ class CourseCollectionViewCell: UICollectionViewCell {
         removeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         removeAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
             //TODO: Replace with networking manager later
+//            let id = self.courseData[self.course_id]
+//            NetworkManager.deleteCourse(id: ) { course in
+//                self.courses.remove(at: self.course_id)
+//                self.courseCollectionView.reloadData()
+//            }
             print("done deleting \(self.course_id)");
         }))
         
-        //MARK: Make Search Only
         
-
         addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         addAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+//            if let id = self.course_id {
+//                NetworkManager.addUserToCourse(courseId: id, id: Student.id, name: Student, email: <#T##String#>, year: <#T##Int#>, major: <#T##String#>, bio: <#T##String#>) { course in
+//
+//                }
+//            }
             print("done adding \(self.course_id)")
         }))
         
