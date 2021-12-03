@@ -100,11 +100,16 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
 
         
     }
-    //MARK: Network
-//    func getCourses() {
-//        NetworkManager.getCourses()
-//
-//    }
+    //MARK: getCourses()
+    func getCourses() {
+        NetworkManager.getCourses { courses in
+            self.courses = courses
+            DispatchQueue.main.async {
+                self.courseCollectionView.reloadData()
+            }
+        }
+
+    }
     
 }
 extension SearchVC: UICollectionViewDataSource {

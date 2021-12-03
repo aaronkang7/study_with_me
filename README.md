@@ -29,3 +29,6 @@ Endpoints:
      
 @app.route("/api/courses/<int:course_id>/assignment/", methods=["POST"])
 -> creates an assignment with title and due date, and adds it to specified course
+
+@app.route("/api/courses/<int:course_id>/delete/", methods=["DELETE"])
+-> removes a specified user from a specified course

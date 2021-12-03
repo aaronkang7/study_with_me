@@ -149,4 +149,11 @@ class ProfileVC : UIViewController{
             major.leadingAnchor.constraint(equalTo: year.trailingAnchor, constant: 10)
         ])
     }
+    
+    func getUserById() {
+//        NetworkManager.getUserById(id: Student.id) {
+//
+//        }
+    }
 }
+
