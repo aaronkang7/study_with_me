@@ -66,7 +66,6 @@ class CoursesVC : UIViewController {
             courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
-<<<<<<< HEAD
         
         
         
@@ -79,8 +78,6 @@ class CoursesVC : UIViewController {
 //                self.courseCollectionView.reloadData()
 //            }
 //        }
-=======
->>>>>>> 8ff3a6966ba05baa060684fad849eed12ca6a9e4
 
 }
     
