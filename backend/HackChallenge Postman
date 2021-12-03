@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "8a56d6e2-4c67-432f-9bbd-1dde6284dab9",
+		"name": "HackChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all courses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}",
+					"host": [
+						"{{localhost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\":\"CS3110\",\n    \"name\":\"Functional Programming and Data Structures\",\n    \"department\":\"Computer Science\",\n    \"professor\":\"Michael Clarkson\",\n    \"prerequisites\":\"CS1110, CS2110, CS2800\" \n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5000/api/courses/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific course",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/api/courses/1/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Specific Course",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:5000/api/courses/1/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Ethan Mah\"\n    \"netid\":\"ecm237\"\n    \"email\":\"ecm237@cornell.edu\"\n    \"major\":\"Statistics and Computer Science\"\n    \"grad_year\": \"2024\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5000/api/users/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}",
+					"host": [
+						"{{localhost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user to course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":1\n    \"netid\":\"ecm237\"\n    \"email\":\"ecm237@cornell.edu\"\n    \"major\":\"Statistics and Computer Science\"\n    \"grad_year\": \"2024\"\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:5000/api/courses/1/add/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"courses",
+						"1",
+						"add",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

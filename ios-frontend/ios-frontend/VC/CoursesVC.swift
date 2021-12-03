@@ -30,10 +30,12 @@ class CoursesVC : UIViewController {
         title = "My Courses"
         
         view.backgroundColor = .white
+        
         courses = [Course(id: 0,name: "Hello", class_code: "Hello2", department: "Chem", enrollment: 30, professor: "Mr.Hello"),Course(id: 1, name: "Class Name", class_code: "CS2110", department: "Computer Science", enrollment: 30, professor: "Mr.jdasfidogn"), Course(id: 2, name: "Multi Calculus", class_code: "MATH1920", department: "Math", enrollment: 285, professor: "Prof1"), Course(id: 3, name: "IOS Development", class_code: "CS1998", department: "Computer Science", enrollment: 15, professor: "Prof2"), Course(id: 4, name: "Course Name Here", class_code: "ABC321", department: "No Department", enrollment: 100, professor: "Prof3")]
         courseData = courses
         setupViews()
         setupConstraints()
+        
     }
     
     func setupViews(){
@@ -64,13 +66,15 @@ class CoursesVC : UIViewController {
             courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
-        
-        //MARK: Network
-//        func getCourses() {
-//            NetworkManager.getCourses()
+
+}
+    
+    func getUserById() {
+//        NetworkManager.getUserById(id: Student.id) {
 //
 //        }
-}
+    }
+
 
 
 }
@@ -121,3 +125,22 @@ extension CoursesVC: CourseCellDelegate{
         present(input, animated: true)
     }
 }
+
+//extension CoursesVC: UICollectionViewDataSource {
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return courses.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = courseCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CourseCollectionViewCell
+//        let course = courses[indexPath.item]
+//        cell.configure(for: course, isSearch: true)
+//        cell.delegate = self
+//        return cell
+//    }
+//
+//}

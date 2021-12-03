@@ -23,6 +23,7 @@ import UIKit
 
 class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate {
     
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     var courseCollectionView: UICollectionView!
@@ -84,7 +85,7 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
         courseCollectionView.dataSource = self
         courseCollectionView.delegate = self
         courseCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
-        //view.addSubview(courseCollectionView)
+        view.addSubview(courseCollectionView)
         
     }
     
@@ -99,11 +100,16 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
 
         
     }
-    //MARK: Network
-//    func getCourses() {
-//        NetworkManager.getCourses()
-//
-//    }
+    //MARK: getCourses()
+    func getCourses() {
+        NetworkManager.getCourses { courses in
+            self.courses = courses
+            DispatchQueue.main.async {
+                self.courseCollectionView.reloadData()
+            }
+        }
+
+    }
     
 }
 extension SearchVC: UICollectionViewDataSource {
@@ -135,7 +141,6 @@ extension SearchVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         return
     }
     
