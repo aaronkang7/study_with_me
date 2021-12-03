@@ -37,9 +37,31 @@ class StudentsVC : UIViewController {
         title = "Students"
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .white
+        
+        getUsers()
         students = [Student(id: 0, name: "Aaron", email: "uk44@cornell.edu", year: 2023, major: "Computer Science", bio: "Looking for study partners!")]
         setupViews()
         setupConstraints()
+    }
+    
+    //MARK: Getting Users
+    func getUsers() {
+        NetworkManager.getUsers { students in
+            self.students = students
+            DispatchQueue.main.async {
+                self.studentsCollectionView.reloadData()
+            }
+        }
+    }
+    
+    
+    func getUsersById() {
+//        NetworkManager.getUserById(id: Student.id) { student in
+//            let student = self.students[id]
+//            DispatchQueue.main.async {
+//
+//            }
+//        }
     }
     
     func setupViews(){

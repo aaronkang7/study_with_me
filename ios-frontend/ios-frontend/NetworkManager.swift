@@ -97,7 +97,7 @@ class NetworkManager {
 
     
     //MARK: Get User
-    static func getUser(completion: @escaping ([Student]) -> Void) {
+    static func getUsers(completion: @escaping ([Student]) -> Void) {
         AF.request("\(endpoint)/api/users/", method: .get).validate().responseData { response in
             switch response.result {
             case .success(let data):

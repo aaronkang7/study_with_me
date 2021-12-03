@@ -27,6 +27,8 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
     let searchController = UISearchController(searchResultsController: ResultsVC())
     var titleLabel: UILabel!
     
+    
+    var courseCollectionView: UICollectionView!
     var courseList = [Course]() //Complete list of courses
     var courseSearch = [Course]() // Courses being searched
     
@@ -60,6 +62,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
         let viewControllerList = [ searchViewController, coursesViewController, profileViewController ]
         
         viewControllers = viewControllerList
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -70,11 +73,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
         vc?.view.backgroundColor = .lightGray
         print(text)
     }
-    
-    //MARK: Notes
-    // When switching VCs in the app, the titles change (i.e. "Search"
-    // disappears and "Profile" becomes black cause I think it was supposed
-    // to be white.
+
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
         
@@ -90,9 +89,9 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
         if (viewController.title == "Search") {
             title = "Search"
             navigationItem.searchController?.searchBar.isHidden = false
-            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         }
-        else {
+        if (viewController.title == "My Courses") {
             navigationItem.searchController?.searchBar.isHidden = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
             title = viewController.title

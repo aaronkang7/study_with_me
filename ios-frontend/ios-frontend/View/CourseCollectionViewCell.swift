@@ -86,19 +86,26 @@ class CourseCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: Create button functions
+    //MARK: Button functions
     
     @objc func deleteButtonTapped(){
         delegate?.handleRemove(input: removeAlert)
-//        NetworkManager.deleteCourse() { course in
+//        NetworkManager.deleteCourse(id: self.id) { course in
 //            print(course)
 //        }
     }
     
     @objc func addButtonTapped() {
         delegate?.handleRemove(input: addAlert)
-//        NetworkManager.addCourse() { course in
+//        NetworkManager.createCourse(id: course.id, ) { course in
 //            print(course)
+//        }
+//        addUserToCourse()
+    }
+    
+    func addUserToCourse() {
+//        NetworkManager.addUserToCourse(courseId: Course.id, id: Student.id, name: Student.name, email: Student.email, year: Student.year, major: Student.major, bio: Student.bio) { student in
+//
 //        }
     }
     
@@ -151,11 +158,5 @@ class CourseCollectionViewCell: UICollectionViewCell {
             enrollmentLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             enrollmentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding)
         ])
-        
-//        NSLayoutConstraint.activate([
-//            addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-//            addButton.topAnchor.constraint(equalTo: deleteButton.bottomAnchor, constant: padding)
-//        ])
     }
-
 }
