@@ -26,7 +26,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"code\":\"CS3110\",\n    \"name\":\"Functional Programming and Data Structures\",\n    \"department\":\"Computer Science\",\n    \"professor\":\"Michael Clarkson\",\n    \"prerequisites\":\"CS1110, CS2110, CS2800\" \n}"
+					"raw": "{\n    \"code\":\"CS3110\",\n    \"name\":\"Functional Programming and Data Structures\",\n    \"department\":\"Computer Science\",\n    \"professor\":\"Michael Clarkson\",\n    \"prerequisites\":\"CS1110, CS2110, CS2800\" \n, \n    \"code: \"CS2110\", \n    \"name\": Data Structures in Java', \n    \"department\": \"Computer Science\", \n    \"professor\": \"David Gries\", \n    \"preqrequisites\": \"CS2110\"\n}\n\n{\n}"
 				},
 				"url": {
 					"raw": "http://0.0.0.0:5000/api/courses/",
@@ -104,7 +104,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Ethan Mah\"\n    \"netid\":\"ecm237\"\n    \"email\":\"ecm237@cornell.edu\"\n    \"major\":\"Statistics and Computer Science\"\n    \"grad_year\": \"2024\"\n}"
+					"raw": "{\n    \"name\":\"Ethan Mah\",\n    \"netid\":\"ecm237\",\n    \"email\":\"ecm237@cornell.edu\",\n    \"major\":\"Statistics and Computer Science\",\n    \"grad_year\": \"2024\"\n}\n\n{\n    \"name\":\"Ben Wu\",\n    \"netid\":\"bnw36\",\n    \"email\":\"bnw36@cornell.edu\",\n    \"major\":\"Economics and Computer Science\",\n    \"grad_year\": \"2024\"\n}\n\n{\n    \"name\":\"Joe Johnson\", \n    \"netid\":\"jj123\", \n    \"email\":\"jj123@cornell.edu\", \n    \"major\":\"Information Science\", \n    \"grad_year\":\"2025\"\n\n}"
 				},
 				"url": {
 					"raw": "http://0.0.0.0:5000/api/users/",
