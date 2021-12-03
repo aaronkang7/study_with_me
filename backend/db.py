@@ -47,7 +47,7 @@ class Course(db.Model):
             "name": self.name,
             "department": self.department,
             "professor": self.professor,
-            "prerequisites": [p.sub_serialize() for p in self.prerequisites],
+            "prerequisites": self.prerequisites,
             "assignments": [a.serialize() for s in self.assignments],
         }
 

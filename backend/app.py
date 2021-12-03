@@ -119,6 +119,21 @@ def add_user_to_course(course_id):
     db.session.commit()
     return success_response(course.serialize())
 
+@app.route("/api/courses/<int:course_id>/delete/", methods=["DELETE"])
+def remove_user_from_course(course_id):
+    course = Course.query.filter_by(id=course_id).first()
+    if course is None:
+        return failure_response("Course not found!")
+    body = json.loads(request.data)
+    user_id = body.get("user_id")
+    user = User.query.filter_by(id=user_id).first()
+    if user in course.students:
+        course.students.remove(user)
+    else:
+        return failure_response("User not in course!")
+    db.session.commit()
+    return success_response(course.serialize())
+
 # -- ASSIGNMENT ROUTES --------------------------------------------------
 
 
