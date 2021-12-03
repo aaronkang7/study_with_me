@@ -73,12 +73,12 @@ class CoursesVC : UIViewController {
 }
     //MARK: getCourses()
     func getCourses() {
-        NetworkManager.getCourses { courses in
-            self.courses = courses
-            DispatchQueue.main.async {
-                self.courseCollectionView.reloadData()
-            }
-        }
+//        NetworkManager.getCourses { courses in
+//            self.courses = courses
+//            DispatchQueue.main.async {
+//                self.courseCollectionView.reloadData()
+//            }
+//        }
 
     }
 

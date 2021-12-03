@@ -21,10 +21,11 @@ import UIKit
 //    }
 //}
 
-class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate {
+class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate{
     
     
     let searchController = UISearchController(searchResultsController: nil)
+    let searchBar = UISearchBar();
     
     var courseCollectionView: UICollectionView!
     var courseData: [Course] = []
@@ -33,23 +34,28 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
     let cellHeight: CGFloat = 110
     var courses: [Course]!
     
+    
     let headerReuseIdentifier = "headerReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         view.backgroundColor = .white
         title = "Search"
         
-        searchController.delegate = self
-        searchController.searchResultsUpdater = self
+        
+//        self.navigationItem.searchController = searchController
+//        
+//        searchController.delegate = self
+//        searchController.searchResultsUpdater = self
         
         
         //searchController.searchBar.searchBarStyle = .default
         //searchController.searchResultsUpdater = self
         //navigationItem.searchController = searchController
-        //self.navigationController?.navigationBar.isTranslucent = true
-        //navigationItem.searchController?.searchBar.isHidden = false
+//        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationItem.searchController?.searchBar.isHidden = false
         //navigationItem.hidesSearchBarWhenScrolling = true
         //searchController.searchBar.placeholder = "Search Here"
         //searchController.searchBar.sizeToFit()
@@ -92,10 +98,10 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
     func setupConstraints(){
         NSLayoutConstraint.activate([
             //search.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-            //courseCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            //courseCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            //courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            //courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            courseCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            courseCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
 
         
