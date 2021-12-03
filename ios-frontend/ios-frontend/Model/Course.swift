@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 
+//MARK: Not sure what JSON looks like
+struct CourseResponse: Codable {
+    var data: Course
+}
+
+struct CoursesResponse: Codable {
+    var data: [Course]
+}
+
 class Course: Codable {
     var id: Int
     var name: String

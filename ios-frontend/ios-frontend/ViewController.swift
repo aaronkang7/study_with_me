@@ -27,6 +27,9 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
     let searchController = UISearchController(searchResultsController: ResultsVC())
     var titleLabel: UILabel!
     
+    var courseList = [Course]() //Complete list of courses
+    var courseSearch = [Course]() // Courses being searched
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -57,7 +60,6 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
         let viewControllerList = [ searchViewController, coursesViewController, profileViewController ]
         
         viewControllers = viewControllerList
-        
     }
     
     func updateSearchResults(for searchController: UISearchController) {

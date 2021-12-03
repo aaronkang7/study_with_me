@@ -86,12 +86,20 @@ class CourseCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Create button functions
+    
     @objc func deleteButtonTapped(){
         delegate?.handleRemove(input: removeAlert)
+//        NetworkManager.deleteCourse() { course in
+//            print(course)
+//        }
     }
     
     @objc func addButtonTapped() {
         delegate?.handleRemove(input: addAlert)
+//        NetworkManager.addCourse() { course in
+//            print(course)
+//        }
     }
     
     func configure(for course: Course, isSearch: Bool) {

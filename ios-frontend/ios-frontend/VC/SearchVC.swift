@@ -23,6 +23,7 @@ import UIKit
 
 class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate {
     
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     var courseCollectionView: UICollectionView!
@@ -84,7 +85,7 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
         courseCollectionView.dataSource = self
         courseCollectionView.delegate = self
         courseCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier)
-        //view.addSubview(courseCollectionView)
+        view.addSubview(courseCollectionView)
         
     }
     
