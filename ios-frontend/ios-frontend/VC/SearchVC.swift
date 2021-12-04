@@ -13,18 +13,19 @@ import UIKit
 // not work here at all (at least from my code) so I moved it to the main
 // ViewController where it works better (i.e. the searchBar appears)
 
-//class ResultsVC : UIViewController {
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .systemGray //for testing purposes
-//    }
-//}
+class ResultsVC : UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemPink //for testing purposes
+    }
+}
 
 class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate{
+
     
     
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: ResultsVC())
     let searchBar = UISearchBar();
     
     var courseCollectionView: UICollectionView!
@@ -45,17 +46,22 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
         title = "Search"
         
         
-//        self.navigationItem.searchController = searchController
-//        
-//        searchController.delegate = self
-//        searchController.searchResultsUpdater = self
+        self.navigationItem.searchController = searchController
+
+        searchController.loadViewIfNeeded()
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        self.navigationItem.searchController?.searchBar.isHidden = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        //searchController.searchBar.placeholder = "Search Courses"
         
         
         //searchController.searchBar.searchBarStyle = .default
         //searchController.searchResultsUpdater = self
         //navigationItem.searchController = searchController
 //        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationItem.searchController?.searchBar.isHidden = false
+        
         //navigationItem.hidesSearchBarWhenScrolling = true
         //searchController.searchBar.placeholder = "Search Here"
         //searchController.searchBar.sizeToFit()
@@ -67,12 +73,13 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
         setupConstraints()
         //getCourses()
     }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
         }
         let vc = searchController.searchResultsController as? ResultsVC
-        vc?.view.backgroundColor = .blue
+        vc?.view.backgroundColor = .yellow
         print(text)
     }
     

@@ -27,6 +27,7 @@ class ProfileVC : UIViewController{
     var emailText: String
     var bioText: String
     
+    var button = UIButton()
     
     init(name: String, year: Int, major: String, email: String, bio: String) {
         self.nameText = name
@@ -84,33 +85,40 @@ class ProfileVC : UIViewController{
         
         name.text = nameText
         name.textColor = .black
-        name.font = UIFont(name: "Helvetica-BoldOblique", size: 26)
+        name.font = UIFont(name: "Helvetica-BoldOblique", size: 30)
         name.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(name)
         
         year.text = yearText
         year.textColor = .black //change later
-        year.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
+        year.font = UIFont(name: "Helvetica-BoldOblique", size: 20)
         year.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(year)
 
         major.text = majorText
         major.textColor = .black //change later
-        major.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
+        major.font = UIFont(name: "Helvetica-BoldOblique", size: 20)
         major.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(major)
 
         email.text = emailText
         email.textColor = .black //change later
-        email.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
+        email.font = UIFont(name: "Helvetica-BoldOblique", size: 20)
         email.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(email)
 
         bio.placeholder = bioText
         bio.textColor = .black
-        bio.font = UIFont(name: "Arial-ItalicMT", size: 12)
+        bio.font = UIFont(name: "Arial-ItalicMT", size: 15)
         bio.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bio)
+        
+//        button.backgroundColor = .clear
+//        button.setTitle("Edit", for: .normal)
+//        button.setTitleColor(.blue, for: .normal)
+//        button.layer.cornerRadius = 4
+//        button.addTarget(self, action: #selector(editProfile), for: .touchUpInside)
+//        view.addSubview(button)
         
     }
    // MARK: Add Profile Image and Bio Constraints
@@ -142,18 +150,31 @@ class ProfileVC : UIViewController{
         
         NSLayoutConstraint.activate([
             year.topAnchor.constraint(equalTo: email.bottomAnchor, constant: 9),
-            year.leadingAnchor.constraint(equalTo: email.leadingAnchor)
+            year.leadingAnchor.constraint(equalTo: email.leadingAnchor),
+            year.trailingAnchor.constraint(equalTo: email.leadingAnchor, constant: 50)
         ])
+        
         NSLayoutConstraint.activate([
             major.topAnchor.constraint(equalTo: email.bottomAnchor, constant: 9),
-            major.leadingAnchor.constraint(equalTo: year.trailingAnchor, constant: 10)
+            major.leadingAnchor.constraint(equalTo: year.trailingAnchor, constant: 20)
         ])
+        
+        NSLayoutConstraint.activate([
+            bio.topAnchor.constraint(equalTo: major.bottomAnchor, constant: 9),
+            bio.leadingAnchor.constraint(equalTo: email.leadingAnchor),
+            bio.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        
     }
     
     func getUserById() {
 //        NetworkManager.getUserById(id: Student.id) {
 //
 //        }
+    }
+    
+    func editProfile() {
+        
     }
 }
 
