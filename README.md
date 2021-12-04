@@ -1,4 +1,8 @@
-# study_with_me
+# Study With Me
+Find and connect with classmates!
+
+
+
 Names: Ben Wu (bnw36), Ethan Mah (ecm237) *insert your names and netids here*
 Server Address: https://hack-challenge-study-with-me.herokuapp.com/
 Endpoints:
