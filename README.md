@@ -1,9 +1,19 @@
 # Study With Me
 Find and connect with classmates!
 
+**Insert Pictures**
+
+This app is intended to allow users to connect with classmates in order to form study groups and/or friends.
 
 
-Names: Ben Wu (bnw36), Ethan Mah (ecm237) *insert your names and netids here*
+
+Names: Ben Wu (bnw36), Ethan Mah (ecm237), Aaron Kang (uk44), Alexia Adams (aa862), Prachi Kelkar (pak226)
+
+Frontend:
+
+
+Backend:
+
 Server Address: https://hack-challenge-study-with-me.herokuapp.com/
 Endpoints:
 
