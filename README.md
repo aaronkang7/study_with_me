@@ -24,34 +24,39 @@ This meets the requirements:
 - The app is set up to be integrated with an API
 
 Backend:
+This meets the requirements for the backend:
+- There are API specifications for all routes as shown below
+- We have 10 fully functional routes that include Get, Post, and Delete methods
+- We have used two databases, one for courses, and one for students and have a relation in between them
+- We have utilized Docker and Heroku and the server address is shown below
 
 Server Address: https://hack-challenge-study-with-me.herokuapp.com/
 Endpoints:
 
 @app.route("/api/courses/", methods=["GET"])
 -> returns a list of all courses. each course has id, course code, course name, department, professor, prerequisites, assignments, students
- 
+
 @app.route("/api/courses/", methods=["POST"])
 -> creates a new course with course code, course name, department, professor, prerequisites. if no input for prerequisites, it is set to "None"
- 
+
 @app.route("/api/courses/<int:course_id>/")
 -> returns given information about a specified course (course_id is the actual id and not to be confused with course code)
- 
+
 @app.route("/api/courses/<int:course_id>/", methods=["DELETE"])
--> deletes a specified course
- 
+-> deletes a specified course with id "course_id"
+
 @app.route("/api/users/", methods=["GET"])
 -> returns a list of all users. each user has id, name, netid, email, major, graduation year and courses they're in
-  
+
 @app.route("/api/users/", methods=["POST"])
 -> creates a new course with name, netid, email, major, and graduation year
-   
+
 @app.route("/api/users/<int:user_id>/")
--> returns given information about a specified user
-    
+-> returns given information about a specified user with id "user_id"
+
 @app.route("/api/courses/<int:course_id>/add/", methods=["POST"])
--> adds a specified user to a specified course
-     
+-> adds a specified user to a specified course with id "course_id"
+
 @app.route("/api/courses/<int:course_id>/assignment/", methods=["POST"])
 -> creates an assignment with title and due date, and adds it to specified course
 
