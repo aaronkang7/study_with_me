@@ -10,14 +10,18 @@ Find and connect with classmates!
 <img width="316" alt="StudentsInCourseVC" src="https://user-images.githubusercontent.com/94802937/144695832-440c4eec-9ff2-49ec-abc6-aba6c76d0e52.png">
 
 
-This app is intended to allow users to connect with classmates in order to form study groups and/or friends.
+This app is intended to allow users to connect with classmates in order to form study groups and/or friends. You can search for courses, add courses to your list, delete courses from your list, view classmates' profiles, and notify them.
 
 
 
 Names: Ben Wu (bnw36), Ethan Mah (ecm237), Aaron Kang (uk44), Alexia Adams (aa862), Prachi Kelkar (pak226)
 
 Frontend:
-
+This meets the requirements:
+- Many components of the app are positioned using NSLayoutConstraint
+- There is at least one UICollectionView. For example, the courses are displayed in a UICollectionView
+- There is a UITabBarController that allows for navigation between view controllers.
+- The app is set up to be integrated with an API
 
 Backend:
 
@@ -53,3 +57,6 @@ Endpoints:
 
 @app.route("/api/courses/<int:course_id>/delete/", methods=["DELETE"])
 -> removes a specified user from a specified course
+
+
+Note: the app is somewhat incomplete.
