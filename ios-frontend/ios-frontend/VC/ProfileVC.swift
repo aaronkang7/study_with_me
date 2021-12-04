@@ -91,19 +91,19 @@ class ProfileVC : UIViewController{
         
         year.text = yearText
         year.textColor = .black //change later
-        year.font = UIFont(name: "Helvetica-BoldOblique", size: 20)
+        year.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         year.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(year)
 
         major.text = majorText
         major.textColor = .black //change later
-        major.font = UIFont(name: "Helvetica-BoldOblique", size: 20)
+        major.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         major.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(major)
 
         email.text = emailText
         email.textColor = .black //change later
-        email.font = UIFont(name: "Helvetica-BoldOblique", size: 20)
+        email.font = UIFont(name: "Helvetica-BoldOblique", size: 17)
         email.translatesAutoresizingMaskIntoConstraints=false
         view.addSubview(email)
 
@@ -113,12 +113,6 @@ class ProfileVC : UIViewController{
         bio.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bio)
         
-//        button.backgroundColor = .clear
-//        button.setTitle("Edit", for: .normal)
-//        button.setTitleColor(.blue, for: .normal)
-//        button.layer.cornerRadius = 4
-//        button.addTarget(self, action: #selector(editProfile), for: .touchUpInside)
-//        view.addSubview(button)
         
     }
 
