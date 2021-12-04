@@ -7,13 +7,14 @@
 
 import UIKit
 
-class ResultsVC : UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemPink //for testing purposes
-    }
-}
+//class ResultsVC : UIViewController {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = .systemPink //for testing purposes
+//    }
+//}
+
 // MARK: Notes
 // This view controller has the elements of the searchController/SearchVC
 // since it seems to work here rather than over there.
@@ -23,7 +24,8 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
     let searchViewController = SearchVC()
     let searchVC = SearchVC()
     let coursesViewController = CoursesVC()
-    let profileViewController = ProfileVC(name: "Aaron Kang", year: 2023, major: "CS", email: "uk44@cornell.edu", bio: "hello")
+    let profileViewController = ProfileVC(name: "Aaron Kang", year: 2023, major: "Computer Science", email: "uk44@cornell.edu", bio: "Hello, nice to meet you!")
+    //var searchController: UISearchController? = UISearchController()
     let searchController = UISearchController(searchResultsController: ResultsVC())
     var titleLabel: UILabel!
     
@@ -43,12 +45,16 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
 //        titleLabel.backgroundColor = .white
 //        navigationItem.titleView = titleLabel
         title = "Search"
-        navigationItem.searchController = searchController
-        navigationItem.searchController?.searchBar.isHidden = false
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        
+//        navigationItem.searchController = searchController
+//        navigationItem.searchController?.searchBar.isHidden = false
+//        searchController.searchBar.delegate = self
+//        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search Courses"
         self.tabBar.barTintColor = .white
+        
+        //MARK: Notes
+        // When the line below is not included, there is no search bar that appears when initially opening the app
+        navigationItem.searchController = searchController;
         
         searchViewController.tabBarItem = UITabBarItem(title:"  Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         searchViewController.title = "Hello"
@@ -66,12 +72,12 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
-            return
-        }
-        let vc = searchController.searchResultsController as? ResultsVC
-        vc?.view.backgroundColor = .lightGray
-        print(text)
+//        guard let text = searchController.searchBar.text else {
+//            return
+//        }
+//        let vc = searchController.searchResultsController as? ResultsVC
+//        vc?.view.backgroundColor = .green
+//        print(text)
     }
 
     
@@ -83,16 +89,23 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
 //            titleLabel.text = "  Profile"
 //            navigationItem.titleView
             title = "Profile"
-            navigationItem.searchController?.searchBar.isHidden = true
+            //searchController = nil;
+            navigationItem.searchController = searchController;
+//            navigationItem.searchController?.searchBar.isHidden = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         }
         if (viewController.title == "Search") {
             title = "Search"
-            navigationItem.searchController?.searchBar.isHidden = false
+            //searchController = UISearchController();
+            navigationItem.searchController = searchController;
+            navigationItem.hidesSearchBarWhenScrolling = false
+//            navigationItem.searchController?.searchBar.isHidden = false
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         }
         if (viewController.title == "My Courses") {
-            navigationItem.searchController?.searchBar.isHidden = true
+            //searchController = nil
+            navigationItem.searchController = searchController;
+//            navigationItem.searchController?.searchBar.isHidden = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
             title = viewController.title
         }

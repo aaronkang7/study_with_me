@@ -66,8 +66,11 @@ class CoursesVC : UIViewController {
             courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
-
+        
+        
+        
 }
+
     
     func getUserById() {
 //        NetworkManager.getUserById(id: Student.id) {

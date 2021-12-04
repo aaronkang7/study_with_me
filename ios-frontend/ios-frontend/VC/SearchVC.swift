@@ -13,18 +13,20 @@ import UIKit
 // not work here at all (at least from my code) so I moved it to the main
 // ViewController where it works better (i.e. the searchBar appears)
 
-//class ResultsVC : UIViewController {
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .systemGray //for testing purposes
-//    }
-//}
+class ResultsVC : UIViewController {
 
-class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemPink //for testing purposes
+    }
+}
+
+class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDelegate{
+
     
     
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: ResultsVC())
+    let searchBar = UISearchBar();
     
     var courseCollectionView: UICollectionView!
     var courseData: [Course] = []
@@ -33,23 +35,33 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
     let cellHeight: CGFloat = 110
     var courses: [Course]!
     
+    
     let headerReuseIdentifier = "headerReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         view.backgroundColor = .white
         title = "Search"
         
+        
+        self.navigationItem.searchController = searchController
+
+        searchController.loadViewIfNeeded()
         searchController.delegate = self
         searchController.searchResultsUpdater = self
+        self.navigationItem.searchController?.searchBar.isHidden = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        //searchController.searchBar.placeholder = "Search Courses"
         
         
         //searchController.searchBar.searchBarStyle = .default
         //searchController.searchResultsUpdater = self
         //navigationItem.searchController = searchController
-        //self.navigationController?.navigationBar.isTranslucent = true
-        //navigationItem.searchController?.searchBar.isHidden = false
+//        self.navigationController?.navigationBar.isTranslucent = true
+        
         //navigationItem.hidesSearchBarWhenScrolling = true
         //searchController.searchBar.placeholder = "Search Here"
         //searchController.searchBar.sizeToFit()
@@ -61,12 +73,13 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
         setupConstraints()
         //getCourses()
     }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
         }
         let vc = searchController.searchResultsController as? ResultsVC
-        vc?.view.backgroundColor = .blue
+        vc?.view.backgroundColor = .yellow
         print(text)
     }
     
@@ -92,10 +105,10 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
     func setupConstraints(){
         NSLayoutConstraint.activate([
             //search.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-            //courseCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            //courseCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            //courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            //courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            courseCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            courseCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            courseCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            courseCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
 
         
@@ -103,11 +116,14 @@ class SearchVC : UIViewController, UISearchResultsUpdating, UISearchControllerDe
     //MARK: getCourses()
     func getCourses() {
         NetworkManager.getCourses { courses in
-            self.courses = courses
+            self.courseData = courses
             DispatchQueue.main.async {
                 self.courseCollectionView.reloadData()
             }
         }
+        courses = courseData
+        print(courses!)
+        
 
     }
     
