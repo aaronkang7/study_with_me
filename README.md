@@ -1,7 +1,9 @@
 # Study With Me
 Find and connect with classmates!
 
-**Insert Pictures**
+<img width="320" alt="SearchVC" src="https://user-images.githubusercontent.com/94802937/144695771-cfbe32d6-2a8e-42ac-affe-42ab34ffde6d.png">
+
+
 
 This app is intended to allow users to connect with classmates in order to form study groups and/or friends.
 
