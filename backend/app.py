@@ -92,7 +92,7 @@ def create_user():
     netid = body.get("netid")
     email = body.get("email")
     major = body.get("major")
-    grad_year = body.get("grad_year")
+    grad_year = body.get("graduation year")
     if not name or not netid or not email or not major or not grad_year:
         return failure_response("Missing fields!",400)
     new_user = User(name = name,netid = netid, email = email, major = major, grad_year = grad_year)
