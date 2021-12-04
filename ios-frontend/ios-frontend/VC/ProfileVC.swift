@@ -121,7 +121,7 @@ class ProfileVC : UIViewController{
 //        view.addSubview(button)
         
     }
-   // MARK: Add Profile Image and Bio Constraints
+
     func setupConstraints(){
         
         NSLayoutConstraint.activate([

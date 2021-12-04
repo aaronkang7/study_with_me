@@ -55,6 +55,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
         //MARK: Notes
         // When the line below is not included, there is no search bar that appears when initially opening the app
         navigationItem.searchController = searchController;
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         searchViewController.tabBarItem = UITabBarItem(title:"  Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         searchViewController.title = "Hello"
@@ -91,7 +92,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
             title = "Profile"
             //searchController = nil;
             navigationItem.searchController = searchController;
-//            navigationItem.searchController?.searchBar.isHidden = true
+            navigationItem.searchController?.searchBar.isHidden = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         }
         if (viewController.title == "Search") {
@@ -99,13 +100,13 @@ class ViewController: UITabBarController, UITabBarControllerDelegate, UISearchRe
             //searchController = UISearchController();
             navigationItem.searchController = searchController;
             navigationItem.hidesSearchBarWhenScrolling = false
-//            navigationItem.searchController?.searchBar.isHidden = false
+            navigationItem.searchController?.searchBar.isHidden = false
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         }
         if (viewController.title == "My Courses") {
             //searchController = nil
             navigationItem.searchController = searchController;
-//            navigationItem.searchController?.searchBar.isHidden = true
+            navigationItem.searchController?.searchBar.isHidden = true
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
             title = viewController.title
         }
