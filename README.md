@@ -1,11 +1,11 @@
 # Study With Me
 Find and connect with classmates!
 
-<img width="320" alt="SearchVC" src="https://user-images.githubusercontent.com/94802937/144695771-cfbe32d6-2a8e-42ac-affe-42ab34ffde6d.png">
+<img width="320" alt="SearchVC" src="https://user-images.githubusercontent.com/94802937/144695894-a4d5734c-2375-4c13-8c12-f990f0ee5b4b.png">
 
-<img width="321" alt="MyCoursesVC" src="https://user-images.githubusercontent.com/94802937/144695827-a83ce2db-d348-488a-98c8-a13ad5bbb16b.png">
+<img width="321" alt="MyCoursesVC" src="https://user-images.githubusercontent.com/94802937/144695879-4426d91b-540b-4171-99bc-4b2394562378.png">
 
-<img width="322" alt="ProfileVC" src="https://user-images.githubusercontent.com/94802937/144695829-7efdff10-ac5b-4a6e-8de5-d077b259de56.png">
+<img width="322" alt="ProfileVC" src="https://user-images.githubusercontent.com/94802937/144695861-d8c2624f-8873-4f59-a13d-1c980a0eb955.png">
 
 <img width="316" alt="StudentsInCourseVC" src="https://user-images.githubusercontent.com/94802937/144695832-440c4eec-9ff2-49ec-abc6-aba6c76d0e52.png">
 
