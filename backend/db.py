@@ -62,18 +62,18 @@ class Assignment(db.Model):
     __tablename__ = 'assignment'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String, nullable = False)
-    due_date = db.Column(db.Integer, nullable = False)
+    dueDate = db.Column(db.Integer, nullable = False)
     course_id = db.Column(db.Integer, db.ForeignKey("course.id"))
 
     def __init__(self, **kwargs):
         self.title = kwargs.get("title")
-        self.due_date = kwargs.get("due_date")
+        self.dueDate = kwargs.get("dueDate")
 
     def serialize(self):
         return {
             "id": self.id,
             "title": self.title,
-            "due_date": self.due_date,
+            "dueDate": self.dueDate,
             "course": self.course_id
         }
 
@@ -81,7 +81,7 @@ class Assignment(db.Model):
         return {
             "id": self.id,
             "title": self.title,
-            "due_date": self.due_date,
+            "dueDate": self.dueDate,
         }
 
 class User(db.Model):
@@ -91,7 +91,7 @@ class User(db.Model):
     netid = db.Column(db.String, nullable = False)
     email = db.Column(db.String, nullable = False)
     major = db.Column(db.String, nullable = False)
-    grad_year = db.Column(db.Integer, nullable = False)
+    gradYear = db.Column(db.Integer, nullable = False)
     courses_student = db.relationship("Course", secondary=association_table, back_populates = "students")
 
     def __init__(self, **kwargs):
@@ -99,7 +99,7 @@ class User(db.Model):
         self.netid = kwargs.get("netid")
         self.email = kwargs.get("email")
         self.major = kwargs.get("major")
-        self.grad_year = kwargs.get("grad_year")
+        self.gradYear = kwargs.get("gradYear")
 
     def serialize(self):
         return {
@@ -108,7 +108,7 @@ class User(db.Model):
             "netid": self.netid,
             "email": self.email,
             "major": self.major,
-            "graduation year": self.grad_year,
+            "gradYear": self.gradYear,
             "courses": [c.sub_serialize() for c in self.courses_student]
         }
 
@@ -119,5 +119,5 @@ class User(db.Model):
             "netid": self.netid,
             "email": self.email,
             "major": self.major,
-            "graduation year": self.grad_year,
+            "gradYear": self.gradYear,
         }

@@ -92,10 +92,10 @@ def create_user():
     netid = body.get("netid")
     email = body.get("email")
     major = body.get("major")
-    grad_year = body.get("graduation year")
-    if not name or not netid or not email or not major or not grad_year:
+    gradYear = body.get("gradYear")
+    if not name or not netid or not email or not major or not gradYear:
         return failure_response("Missing fields!",400)
-    new_user = User(name = name,netid = netid, email = email, major = major, grad_year = grad_year)
+    new_user = User(name = name,netid = netid, email = email, major = major, gradYear = gradYear)
     db.session.add(new_user)
     db.session.commit()
     return success_response(new_user.serialize(),201)
@@ -144,10 +144,10 @@ def create_assignment(course_id):
         return failure_response("Course not found!")
     body = json.loads(request.data)
     title = body.get("title")
-    due_date = body.get("due_date")
-    if not title or not due_date:
+    dueDate = body.get("dueDate")
+    if not title or not dueDate:
         return failure_response("Missing fields!", 400)
-    new_assignment = Assignment(title = title,due_date = due_date)
+    new_assignment = Assignment(title = title,due_date = dueDate)
     course.assignments.append(new_assignment)
     db.session.add(new_assignment)
     db.session.commit()
