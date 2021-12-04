@@ -1,11 +1,19 @@
 # Study With Me
 Find and connect with classmates!
 
+Search View Controller:
+
 <img width="320" alt="SearchVC" src="https://user-images.githubusercontent.com/94802937/144695894-a4d5734c-2375-4c13-8c12-f990f0ee5b4b.png">
+
+My Courses View Controller:
 
 <img width="321" alt="MyCoursesVC" src="https://user-images.githubusercontent.com/94802937/144695879-4426d91b-540b-4171-99bc-4b2394562378.png">
 
+Profile View Controller:
+
 <img width="322" alt="ProfileVC" src="https://user-images.githubusercontent.com/94802937/144695861-d8c2624f-8873-4f59-a13d-1c980a0eb955.png">
+
+A View of Students in a Course:
 
 <img width="316" alt="StudentsInCourseVC" src="https://user-images.githubusercontent.com/94802937/144695832-440c4eec-9ff2-49ec-abc6-aba6c76d0e52.png">
 
