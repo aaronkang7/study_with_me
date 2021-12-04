@@ -39,7 +39,7 @@ class StudentsVC : UIViewController {
         view.backgroundColor = .white
         
         getUsers()
-        students = [Student(id: 0, name: "Aaron", email: "uk44@cornell.edu", year: 2023, major: "Computer Science", bio: "Looking for study partners!"), Student(id: 1, name: "Alexia", email: "aa862@cornell.edu", year: 2025, major: "Computer Scicence", bio: "Please be my study partner!"), Student(id: 3, name: "Ben", email: "bnw36@cornell.edu", year: 2024, major: "Economics and Computer Science", bio: "Contact me!"), Student(id: 4, name: "Ethan", email: "ecm237@cornell.edu", year: 2024, major: "Statistics and Computer Science", bio: "Let's study!")]
+        students = [Student(id: 0, name: "Aaron", email: "uk44@cornell.edu", year: 2023, major: "Computer Science", bio: "Looking for study partners!"), Student(id: 1, name: "Alexia", email: "aa862@cornell.edu", year: 2025, major: "Computer Science", bio: "Please be my study partner!"), Student(id: 3, name: "Ben", email: "bnw36@cornell.edu", year: 2024, major: "Economics and Computer Science", bio: "Contact me!"), Student(id: 4, name: "Ethan", email: "ecm237@cornell.edu", year: 2024, major: "Statistics and Computer Science", bio: "Let's study!")]
         setupViews()
         setupConstraints()
     }
